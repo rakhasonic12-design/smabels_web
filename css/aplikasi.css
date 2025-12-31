@@ -1,0 +1,166 @@
+.aplikasi-siswa {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 70px;
+    height: 70%;
+    align-content: center;
+    text-align: center;
+}
+
+.aplikasi-siswa h1 {
+    font-weight: bold;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+ .container {
+      padding: 2rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    /* Form layout */
+    .simple-form {
+      display: flex;
+      align-items: center;
+    }
+    .text-input {
+      flex: 1 1 auto;
+      padding: .65rem .9rem;
+      border: 1px solid var(--border);
+      border-radius: 10px 0 0 10px;
+      background: white;
+      font-size: 1rem;
+    }
+    .enter-btn {
+      padding: .65rem 1rem;
+      border: 1px solid var(--btn-border);
+      background-color: var(--second-color);
+      border-radius: 0 10px 10px 0;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .enter-btn:hover { background: #e4eaf5; }
+    /* Visually hidden label for accessibility while keeping UI clean */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    /* Result area (optional) */
+    #result {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #333;
+    }
+
+    .aspirasi-container {
+      display: grid;
+      grid-template-columns: auto auto;
+      padding: 50px;
+      align-content: center;
+      gap: 50px;
+    }
+
+    .logo-aspirasi {
+      align-content: center;
+      text-align: left;
+      font-weight: bold;
+      gap: 10px;
+      line-height: 1.0;
+      padding: 20px;
+    }
+
+    .logo-aspirasi h1{
+      font-size: 70px;
+      font-weight: bold;
+    }
+
+    .logo-aspirasi h2{
+      font-weight: bold;
+    }
+
+    .form-aspirasi {
+      align-content: center;
+    }
+
+
+    .aspirasi-container input[type=text], select, textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+    input[type=submit] {
+     background-color: #04AA6D;
+     color: white;
+     padding: 12px 20px;
+     border: none;
+     border-radius: 25px;
+     cursor: pointer;
+}
+
+    input[type=submit]:hover {
+    background-color: #45a049;
+    }
+
+    .container {
+     border-radius: 20px;
+     background-color: var(--primary-color);
+     padding: 40px;
+     color: white;
+     display: block;
+    }
+
+    .result {
+      padding: 5%;
+      
+    }
+
+    .result-card {
+      padding: 5%;
+      background-color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      line-height:
+    }
+
+    .result-card h2{
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 1000px) {
+
+    .aplikasi-siswa {
+        padding: 25px;
+        font-size: 15px;
+    }
+
+    .aplikasi-siswa h1 {
+        font-size: 30px;
+    }   
+
+    .aspirasi-container {
+      grid-template-columns: auto;
+
+    }
+
+    .logo-aspirasi {
+      align-content: center;
+      text-align: center;
+      font-weight: bold;
+      gap: 10px;
+      line-height: 1.0;
+    }
+
+
+    }
