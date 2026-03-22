@@ -25,62 +25,99 @@
   <?php require 'template/header.php'; ?>
 
   <section class="hero">
-    <h1><b>Berita Terbaru SMAN 11 Bekasi</b></h1>
+    <h1>Berita SMAN 11 Bekasi</h1>
     <p>Ikuti kabar terkini dan kegiatan menarik di lingkungan sekolah kami</p>
   </section>
 
   <section class="news-section">
-    
-<div class="search-section" style="text-align:center; margin-bottom:20px;">
-  <form method="get" action="">
-    <input 
-      type="text" 
-      name="q" 
-      placeholder="Cari berita..." 
-      value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>" 
-      style="padding:8px 12px; width:250px; border-radius:6px; border:1px solid #ccc;"
-    >
-     <button 
-      type="submit" 
-      style="padding:8px 15px; border:none; background:#0066cc; color:white; border-radius:6px; cursor:pointer;">
-      Cari
-    </button>
-  </form>
+    <div class="search-section">
+    <form method="get" action="" class="search-form">
+        <input 
+            type="text" 
+            name="q" 
+            class="search-input"
+            placeholder="Cari berita..." 
+            value="<?= isset($_GET['q']) ? htmlspecialchars($_GET['q']) : '' ?>" 
+            
+        >
+        <button type="submit" class="search-button">
+            <i class="fa fa-search"></i> <span>Cari</span>
+        </button>
+    </form>
 </div>
 
-    <div class="news-container">
-      <?php
-      $where = "";
-      if (!empty($_GET['q'])) {
-        $keyword = mysqli_real_escape_string($conn, $_GET['q']);
-        $where = "WHERE judul LIKE '%$keyword%' OR isi LIKE '%$keyword%'";
-      }
-      $query = mysqli_query($conn, "SELECT * FROM berita $where ORDER BY tanggal DESC");
-      
-      while ($b = mysqli_fetch_assoc($query)) :
-      ?>
-      <div class="news-card">
-        <img src="admin/upload/<?= htmlspecialchars($b['gambar']) ?>" alt="<?= htmlspecialchars($b['judul']) ?>">
-        <div class="news-content">
-          <div class="kategori-label"><?= htmlspecialchars($b['kategori']) ?></div>
-          <h3><?= htmlspecialchars($b['judul']) ?></h3>
-          <p class="news-date"><?= date('d F Y', strtotime($b['tanggal'])) ?></p>
-          <p class="news-text">
-            <?= substr(strip_tags($b['isi']), 0, 120) ?>...
-          </p>
-          <a href="news_detail.php?id=<?= $b['id'] ?>">
-            <button class="read-more">Baca Selengkapnya</button>
-          </a>
-        </div>
-      </div>
-      <?php endwhile; ?>
+    <?php
+    // --- LOGIKA PAGINATION ---
+    $batas = 8; // Jumlah berita per halaman
+    $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
+    $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
+
+    $keyword = isset($_GET['q']) ? mysqli_real_escape_string($conn, $_GET['q']) : '';
+    $where_clause = "";
+    if (!empty($keyword)) {
+        $where_clause = " WHERE judul LIKE '%$keyword%' OR isi LIKE '%$keyword%'";
+    }
+
+    // Hitung total data untuk mengetahui jumlah halaman
+    $data = mysqli_query($conn, "SELECT id FROM berita $where_clause");
+    $jumlah_data = mysqli_num_rows($data);
+    $total_halaman = ceil($jumlah_data / $batas);
+
+    // Query ambil data dengan LIMIT
+    $sql = "SELECT * FROM berita $where_clause ORDER BY tanggal DESC LIMIT $halaman_awal, $batas";
+    $query = mysqli_query($conn, $sql);
+    ?>
+
+    <div class="berita-container">
+        <?php
+        if ($query && mysqli_num_rows($query) > 0) {
+            while ($b = mysqli_fetch_assoc($query)) {
+                $gambar_path = !empty($b['gambar']) ? "admin/upload/".htmlspecialchars($b['gambar']) : "assets/sma11home.png";
+        ?>
+                <article class="news-card">
+                    <div class="news-img-wrapper">
+                        <img src="<?= $gambar_path ?>" alt="<?= htmlspecialchars($b['judul']) ?>" class="news-img">
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">
+                            <a href="news_detail.php?id=<?= (int)$b['id'] ?>">
+                                <?= htmlspecialchars($b['judul']) ?>
+                            </a>
+                        </h3>
+                        <p class="news-excerpt">
+                            <?= substr(strip_tags($b['isi']), 0, 100) ?>...
+                        </p>
+                        <div class="news-footer">
+                            <small><i class="fa fa-calendar"></i> <?= date('d M Y', strtotime($b['tanggal'])) ?></small>
+                            <a href="news_detail.php?id=<?= (int)$b['id'] ?>" class="read-more">Baca Selengkapnya →</a>
+                        </div>
+                    </div>
+                </article>
+        <?php
+            }
+        } else {
+            echo "<p style='grid-column: 1/-1; text-align:center;'>Berita tidak ditemukan.</p>";
+        }
+        ?>
     </div>
-  
-  </section>
 
-  <div class="logoPanit">
-  <img class="fotoPanit" src="assets\LOGOPANIT.png">
-</div>
+    <div class="pagination-container" style="text-align: center; margin-top: 40px; display: flex; justify-content: center; gap: 10px;">
+        
+        <?php if($halaman > 1): ?>
+            <a class="page-link" href="?halaman=<?= $halaman - 1 ?>&q=<?= $keyword ?>"><i class="fa fa-angle-left"></i> Sebelumnya</a>
+        <?php endif; ?>
+
+        <?php for($x=1; $x<=$total_halaman; $x++): ?>
+            <a class="page-link <?= ($halaman == $x) ? 'active' : '' ?>" href="?halaman=<?= $x ?>&q=<?= $keyword ?>"><?= $x ?></a>
+        <?php endfor; ?>
+
+        <?php if($halaman < $total_halaman): ?>
+            <a class="page-link" href="?halaman=<?= $halaman + 1 ?>&q=<?= $keyword ?>">Berikutnya <i class="fa fa-angle-right"></i></a>
+        <?php endif; ?>
+        
+    </div>
+</section>
+
 
  <?php require 'template/footer.php'; ?>
 <script src="js/berita.js"></script>

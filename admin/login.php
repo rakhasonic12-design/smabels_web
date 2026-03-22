@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
 body {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    background: #1d2f5d;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -59,14 +59,15 @@ body {
     border-radius: 8px;
     height: 45px;
     font-size: 16px;
-    font-weight: 600;
-    background: #2575fc;
+    font-weight: 900;
+    background: #ffa200;
+    color: white;
     border: none;
     transition: 0.3s;
 }
 
 .btn-login:hover {
-    background: #6a11cb;
+    background: #8b5800;
 }
 
 .alert {

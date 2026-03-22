@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-<link rel="stylesheet" href="css\main.css">
 <link rel="stylesheet" href="css\2.css">
-<link rel="stylesheet" href="css\aplikasi.css">
 <link rel="stylesheet" href="css\profil.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
@@ -24,280 +22,190 @@
 
   <div id="body">
   <?php require 'template/header.php'; ?>
-  <header class="navbar">
-    <div class="logo">🏫 SMAN 11 BEKASI</div>
-    <nav id="nav-menu">
-      <a href="#visi">Visi</a>
-      <a href="#misi">Misi</a>
-      <a href="#ekskul">Ekskul</a>
-    </nav>
-    <button class="menu-toggle" id="menu-btn">☰</button>
-  </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Profil SMA Negeri 11 Kota Bekasi</h1>
-      <p>“Mewujudkan generasi unggul, religius, kreatif, berkarakter, dan berbudaya.”</p>
-      <div class="hero-buttons">
-        <a href="#visi" class="btn">Visi</a>
-        <a href="#misi" class="btn">Misi</a>
-        <a href="#ekskul" class="btn">Ekskul</a>
-      </div>
+
+<div class="profileHero">
+  <div class="profileHero-container">
+    <div class="profileHero-tag">
+      <p>Profil Sekolah</p>
     </div>
-  </section>
-
-  
-
-  <section id="visi" class="section" >
-    <div class="sections">
-      <h1 class="orange">Visi</h1>
-    </div>
-    <div class="cards">
-      <div class="card">
-       <p><span class="orange">Unggul:</span> Memiliki kualitas dan kemampuan dalam aspek akademik maupun non akademik serta karakter</p>
-      </div>
-      <div class="card">
-       <p><span class="orange">Religius:</span>  memiliki kesadaran dan komitmen dalam menjalankan ajaran agama secara konsisten sehingga tampak pada akhlak dan perilaku sehari-hari.</p>
-      </div>
-      <div class="card">
-       <p><span class="orange">Kreatif:</span>mampu berfikir, bertindak, dan berkarya secara Inovatif dan bermanfaat sehingga menghadirkan hal baru yang bernilai positif bagi diri sendiri maupun lingkungan</p>
-      </div>
-      <div class="card">
-       <p><span class="orange">Bernalar kritis:</span> memiliki kemampuan untuk berpikir secara logis dalam memahami dan memecahkan masalah, sehingga menghasilkan keputusan atau kesimpulan yang tepat dan bermanfaat</p>
-      </div>
-      <div class="card">
-       <p><span class="orange">Menguasai IPTEK:</span> memiliki pengetahuan, keterampilan, dan sikap dalam memahami, menggunakan serta mengembangkan ilmu pengetahuan dan teknologi secara bertanggungjawab</p>
-      </div>
-      <div class="card">
-       <p>Berbudaya lingkungan menjadikan kepedulian terhadap alam sebagal bagian dari pola pikir, sikap dan gaya hidup sehari-hari untuk menciptakan lingkungan yang sehat, bersih danÂ berkelanjutan</p>
-      </div>
-
-
-    </div>
-  </section>
-
-
- <section id="misi" class="section alt">
-     <div class="sections">
-      <h1 class="orange">Misi</h1>
-    </div>
-    <div class="cards">
-       <div class="card">
-       <p><span class="orange">1.</span> Mengembangkan karakter murid melalui 5 Pilar Panca Waluya (Cageur, Bageur, Bener, Pinter, Singer) serta berlandaskan 8 Dimensi Protil Pelajar Pancasila,</p>
-      </div>
-      <div class="card">
-        <p><span class="orange">2.</span> Menerapkan 7 Kebiasaan Anak Indonesia Hebat seperti bangun pagi, beribadah, berolahraga, makan sehat, gemar belajar, bermasyarakat, dan tidur tepat waktu.</p>
-      </div>
-      <div class="card">
-        <p><span class="orange">3.</span> Menumbuhkan budaya religius dan budi pekerti melalui pembiasaan tertib ibadah serta budaya 55 (Senyum, Salam, Sapa, Sopan, Santun).</p>       
-      </div>
-      <div class="card">
-        <p><span class="orange">4.</span> Mendorong sikap kritis, kreatif, komunikatif, dan kolaboratif melalui kegiatan intra dan kokurikuler.</p>  
-      </div>
-       <div class="card">
-        <p><span class="orange">5.</span> Meningkatkan mutu pembelajaran dan kompetensi murid agar unggul dalam akademik, non-akademik, dan siap bersaing di dunia kerja.</p>  
-      </div>
-      <div class="card">
-        <p><span class="orange">6.</span> Mengembangkan rasa kepedulian, nasionalisme, dan cinta budaya lokal melalui aktivitas sosial, lingkungan, dan kebangsaan.</p>  
-      </div>
-      <div class="card">
-        <p><span class="orange">7</span> Membudayakan literasi dan life skill untuk membentuk peserta didik yang mandiri, cerdas, dan berdaya saing.</p>  
-      </div>
-      <div class="card">
-        <p><span class="orange">8.</span> Meningkatkan disiplin, kebersihan, dan karakter pembelajar sepanjang hayat dalam lingkungan sekolah yang sehat dan beretika.</p>  
-      </div>
-      <div class="card">
-        <p><span class="orange">9.</span> Meningkatkan kompetensi guru dan tenaga kependidikan agar profesional dan berdaya Ä°novatif.</p>  
-      </div>
-       <div class="card">
-        <p><span class="orange">10.</span> Meningkatkan mutu pelayanan sekolah yang responsit terhadap kebutuhanÂ seluruhÂ pihak.</p>  
-      </div>
-    </div>
-  </section>
-
-
-  <
-
-  <section id="ekskul" class="section">
-     <div class="sections">
-      <h1 class="orange">Ekstrakurikuler</h1>
-    </div>
-    <div class="carousel">
-      <button class="arrow left" id="prev">&#10094;</button>
-      <div class="carousel-track" id="carousel-track">
-        <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Irmas</h2>
-          </div>
-          <img src="assets\irmas.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-             <a href="https://www.instagram.com/irmassman11bks?igsh=ZnpqYm80bHZsZG5r" class="link-join">Join</a>
-          </div>
-        </div>
-       <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Eltrance</h2>
-          </div>
-          <img src="assets\eltrance.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-             <a href="https://www.instagram.com/official_eltrance?igsh=MW55cXF6bzJpemlkeA==" class="link-join">Join</a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Kritik</h2>
-          </div>
-          <img src="assets\kritik.jpg" alt="Ekskul 1">
-          <div class="join-ekskul">
-             <a href="https://www.instagram.com/11kritik?igsh=andtZmd3MGk1OG5j" class="link-join">Join</a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Elbad</h2>
-          </div>
-          <img src="assets\elbad.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-             <a href="https://www.instagram.com/elevenbadminton_?igsh=MWh2dDZhNmoza2kwdw==#" class="link-join">Join</a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Elvid</h2>
-          </div>
-          <img src="assets\elvid.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/elvidio11?igsh=MTR5cnRjeGRtb3JqZg==" class="link-join">Join</a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2 class="judul-ekskul">Dewata</h2>
-          </div>
-          <img src="assets\dewata.jpg" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/dewatascout_11?igsh=c205eHRvejV3bnYx" class="link-join">Join</a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Kajuku</h2>
-          </div>
-          <img src="assets\kajuku.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-             <a href="https://www.instagram.com/kazoku.11.kurabu?igsh=MTgwdmY5eXJmNXFoeA==" class="link-join">Join</a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Raven</h2>
-          </div>
-          <img src="assets\raven.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/ratohjaroe.eleven?igsh=MWYxcGdtZ3Z3d2UyYw==" class="link-join">Join</a>
-          </div>
-        </div>
-
-         <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>PMR</h2>
-          </div>
-          <img src="assets\pmr.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/elevenrescue?igsh=dXp3ZW9xcGJ6ZXlw" class="link-join">Join</a>
-          </div>
-        </div>
-
-         <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Eleven Futsal</h2>
-          </div>
-          <img src="assets\elfut.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/elevenfutsal?igsh=ZnZrNGM1cGY1OTJ6" class="link-join">Join</a>
-          </div>
-        </div>
-
-         <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Base</h2>
-          </div>
-          <img src="assets\base.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/officialbasketsebelas?igsh=MTliOWdjeW90dnJpZA==" class="link-join">Join</a>
-          </div>
-        </div>
-
-         <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Exance</h2>
-          </div>
-          <img src="assets\exance.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/exance_official?igsh=cjBpcXNkbTU1Ympj" class="link-join">Join</a>
-          </div>
-        </div>
-
-         <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Pascal</h2>
-          </div>
-          <img src="assets\pascal.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/pascaldera?igsh=ZW5mcjgwbWJod3Jt" class="link-join">Join</a>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Elkade</h2>
-          </div>
-          <img src="assets\elkade.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/taekwondodekade?igsh=MXJ6YXM0Y2x1ZXZteA==" class="link-join">Join</a>
-          </div>
-        </div>
-
-         <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Korpspalas</h2>
-          </div>
-          <img src="assets\paskib.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/korpspalas?igsh=MWQ4NzhhZmVjcjJseA==" class="link-join">Join</a>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>Evote</h2>
-          </div>
-          <img src="assets\voli.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/evote11?igsh=aHZzM204a3d2ZDNw" class="link-join">Join</a>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="nama-ekskul">
-            <h2>ELEC</h2>
-          </div>
-          <img src="assets\elec.JPG" alt="Ekskul 1">
-          <div class="join-ekskul">
-            <a href="https://www.instagram.com/elecsman11?igsh=Mm9pM2p6c2h2YXo=" class="link-join">Join</a>
-          </div>
-        </div>
-      </div>
-      <button class="arrow right" id="next">&#10095;</button>
-    </div>
-  </section>
-
-  <section class="section alt">
-  <div class="sections">
-    <h1 class="orange">Video</h1>
+    <h1>SMAN 11 KOTA BEKASI</h1>
+    <p class="profileHero-description">Membangun Generasi Unggul dengan Dukungan Lingkungan dan Fasilitas Terbaik</p>
   </div>
-  <div class="videos" id="youtube-videos"></div>
+</div>
+
+
+<div class="profileVid" data-aos="fade-up">
+  <iframe
+   src="https://www.youtube-nocookie.com/embed/DQI-uMOmkVo?si=VaYthxqjr1Lc_vab&amp;controls=0"
+    title="YouTube video player" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<section id="visi-misi" class="profile-section">
+  <div class="split-wrapper">
+    
+    <div class="side-dark">
+      <div class="content-box left-align" data-aos="fade-right">
+        <span class="top-label">Visi & Misi Sekolah</span>
+        <h1 class="main-heading">Visi<br><span class="accent-color">Sekolah</span></h1>
+        
+         <div class="visiMisi-card">
+            <div class="visiMisi-info">
+              <h4>Unggul</h4>
+             <p>Memiliki kualitas dan kemampuan dalam aspek akademik maupun non akademik serta karakter</p>
+            </div>
+          </div>
+
+           <div class="visiMisi-card">
+             <div class="visiMisi-info">
+              <h4>Religius</h4>
+              <p>memiliki kesadaran dan komitmen dalam menjalankan ajaran agama secara konsisten 
+              sehingga tampak pada akhlak dan perilaku sehari-hari.</p>
+            </div>
+          </div>
+
+           <div class="visiMisi-card">
+             <div class="visiMisi-info">
+              <h4>Kreatif</h4>
+               <p>mampu berfikir, bertindak, dan berkarya secara Inovatif dan bermanfaat sehingga menghadirkan hal baru yang
+                bernilai positif bagi diri sendiri maupun lingkungan</p>
+            </div>
+          </div>
+
+           <div class="visiMisi-card">
+             <div class="visiMisi-info">
+              <h4>Bernalar Kritis</h4>
+                <p> memiliki kemampuan untuk berpikir secara logis
+                dalam memahami dan memecahkan masalah, sehingga menghasilkan keputusan atau kesimpulan yang tepat dan bermanfaat</p>
+            </div>
+          </div>
+
+           <div class="visiMisi-card">
+             <div class="visiMisi-info">
+              <h4>IPTEK</h4>
+               <p>memiliki pengetahuan, keterampilan, dan sikap dalam memahami,
+                 menggunakan serta mengembangkan ilmu pengetahuan dan teknologi secara bertanggungjawab</p>
+            </div>
+          </div>
+
+           <div class="visiMisi-card">
+             <div class="visiMisi-info">
+              <h4>Berbudaya Lingkungan</h4>
+                <p>Berbudaya lingkungan menjadikan kepedulian terhadap alam sebagal bagian dari pola pikir,
+           sikap dan gaya hidup sehari-hari untuk menciptakan lingkungan yang sehat, bersih dan berkelanjutan</p>
+            </div>
+          </div>
+
+          
+      </div>
+    </div>
+
+    <div class="side-light">
+     
+      <div class="content-box" data-aos="fade-left">
+          <h1 class="main-heading">Misi<br><span class="accent-color">Sekolah</span></h1>
+        <div class="misi-cards-list">
+          
+          <div class="visiMisi-card bordered">
+            <div class="visiMisi-icon">1</div>
+            <div class="visiMisi-info">
+              <h4>Karakter Panca Waluya</h4>
+              <p>Mengembangkan karakter murid melalui 5 Pilar (Cageur, Bageur, Bener, Pinter, Singer).</p>
+            </div>
+          </div>
+
+          <div class="visiMisi-card bordered">
+          <div class="visiMisi-icon">2</div>
+            <div class="visiMisi-info">
+              <h4>7 Kebiasaan Hebat</h4>
+              <p>Menerapkan pola hidup sehat, disiplin ibadah, dan gemar belajar setiap hari.</p>
+            </div>
+          </div>
+
+          <div class="visiMisi-card bordered">
+            <div class="visiMisi-icon">3</div>
+             <div class="visiMisi-info">
+               <h4>Budaya Religius</h4>
+               <p>Menumbuhkan budaya religius dan budi pekerti 
+                melalui pembiasaan tertib ibadah serta budaya 55 (Senyum, Salam, Sapa, Sopan, Santun).</p>
+            </div>
+          </div>
+
+           <div class="visiMisi-card bordered">
+           <div class="visiMisi-icon">4</div>
+             <div class="visiMisi-info">
+              <h4>Mutu Pembelajaran</h4>
+              <p>Mendorong sikap kritis, kreatif, komunikatif, 
+                dan kolaboratif melalui kegiatan intra dan kokurikuler.</p>
+            </div>
+          </div>
+
+            <div class="visiMisi-card bordered">
+            <div class="visiMisi-icon">5</div>
+             <div class="visiMisi-info">
+              <h4>Mutu Pembelajaran</h4>
+              <p>Meningkatkan mutu pembelajaran dan kompetensi murid agar unggul 
+                dalam akademik, non-akademik, dan siap bersaing di dunia kerja.</p>
+            </div>
+          </div>
+
+           <div class="visiMisi-card bordered">
+            <div class="visiMisi-icon">6</div>
+             <div class="visiMisi-info">
+              <h4>Mutu Pembelajaran</h4>
+              <p>Mengembangkan rasa kepedulian, nasionalisme, dan cinta budaya
+                 lokal melalui aktivitas sosial, lingkungan, dan kebangsaan.</p>
+            </div>
+          </div>
+
+          <div class="visiMisi-card bordered">
+           <div class="visiMisi-icon">7</div>
+            <div class="visiMisi-info">
+              <h4>Mutu Pembelajaran</h4>
+              <p>Membudayakan literasi dan life skill untuk membentuk peserta didik yang mandiri, cerdas, dan berdaya saing.</p>
+            </div>
+          </div>
+
+           <div class="visiMisi-card bordered">
+           <div class="visiMisi-icon">8</div>
+             <div class="visiMisi-info">
+              <h4>Mutu Pembelajaran</h4>
+              <p>Meningkatkan disiplin, kebersihan, dan karakter pembelajar
+                 sepanjang hayat dalam lingkungan sekolah yang sehat dan beretika.</p>
+            </div>
+          </div>
+
+          <div class="visiMisi-card bordered">
+            <div class="visiMisi-icon">9</div>
+            <div class="visiMisi-info">
+              <h4>Mutu Pembelajaran</h4>
+              <p>Meningkatkan kompetensi guru dan tenaga kependidikan agar profesional dan berdaya inovatif.</p>
+            </div>
+          </div>
+
+            <div class="visiMisi-card bordered">
+            <div class="visiMisi-icon">10</div>
+            <div class="visiMisi-info">
+              <h4>Mutu Pembelajaran</h4>
+              <p>Meningkatkan mutu pelayanan sekolah yang responsit terhadap kebutuhan seluruh pihak.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+ 
+
+   <div class="section-header">
+     <h1>Video</h1>
+    </div>
+
+  <div class="videos" id="youtube-videos"></div>
 
 <script>
   const API_KEY = "AIzaSyBtvS4YqCn1AgYoaaODBFU3gS50kQbxdoE";
@@ -331,13 +239,15 @@
 </script>
 
 
-  <div class="logoPanit">
-  <img class="fotoPanit" src="assets\LOGOPANIT.png">
-</div>
+
 
 <?php require 'template/footer.php'; ?>
 
 
   <script src="js\profil.js"></script>
+  <script>
+  AOS.init({ duration: 1000, once: true });
+  
+</script>
 </body>
 </php>

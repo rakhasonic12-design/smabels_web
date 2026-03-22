@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>Cek Data Peserta Didik</h1>
     <p>Masukkan NISN anda di bawah ini untuk melihat data lengkap siswa.</p>
 
-    <div class="container">
+    <div class="apk-container">
     <form class="simple-form" method="POST">
       <input class="text-input" type="text" name="nisn" placeholder="Masukkan NISN..." value="<?= htmlspecialchars($_POST['nisn'] ?? '') ?>" required>
       <button class="enter-btn" type="submit">Cari</button>
@@ -84,9 +84,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 </div>
 
-<div class="logoPanit">
-  <img class="fotoPanit" src="assets\LOGOPANIT.png">
-</div>
 
 <?php require 'template/footer.php'; ?>
 </body>

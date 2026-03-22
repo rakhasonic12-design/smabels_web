@@ -3,121 +3,216 @@ include 'admin/config.php';
 $id = intval($_GET['id']);
 $q = mysqli_query($conn, "SELECT * FROM berita WHERE id = $id");
 $b = mysqli_fetch_assoc($q);
+
+if (!$b) {
+    echo "Berita tidak ditemukan.";
+    exit;
+}
+
+// Query tambahan untuk sidebar (Berita Terbaru lainnya)
+$latest_q = mysqli_query($conn, "SELECT * FROM berita WHERE id != $id ORDER BY tanggal DESC LIMIT 5");
 ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title><?= htmlspecialchars($b['judul']) ?> - SMAN 11 Bekasi</title>
-  <link rel="stylesheet" href="css/2.css">
-  <link rel="stylesheet" href="css/berita.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    .news-detail-container {
-      max-width: 900px;
-      margin: 120px auto 60px;
-      background: #fff;
-      padding: 30px 40px;
-      border-radius: 15px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      font-family: 'Poppins', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= htmlspecialchars($b['judul']) ?> - SMAN 11 Bekasi</title>
+    <link rel="stylesheet" href="css/2.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .newscontainer {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
 
-    .news-detail-container h2 {
-      font-size: 28px;
-      color: #1a1a1a;
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
+        .main-content {
+            flex: 3;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: #fff;
+        }
 
-    .news-date {
-      color: #777;
-      font-size: 14px;
-      margin-bottom: 25px;
-      display: block;
-    }
+        .sidebar {
+            flex: 1;
+            min-width: 300px;
+        }
 
-    .news-detail-container img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 25px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-    }
+        .breadcrumb {
+            font-size: 13px;
+            color: #777;
+            margin: 15px 0;
+        }
+        .breadcrumb a {
+            text-decoration: none; 
+            color: #2c3e50; 
+            font-weight: 700;
+        }
 
-    .news-detail-container p {
-      font-size: 16px;
-      color: #333;
-      line-height: 1.8;
-      text-align: justify;
-    }
+        h1.news-title {
+            font-family: 'Merriweather', serif;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            color: #222;
+        }
 
-    .back-button {
-      display: inline-block;
-      margin-top: 30px;
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+        .meta-info {
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #777;
+        }
 
-    .back-button:hover {
-      background-color: #0056b3;
-    }
+        .news-image-wrapper img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
 
-    @media (max-width: 768px) {
-      .news-detail-container {
-        padding: 20px;
-        margin: 100px 20px 40px;
-      }
-    }
-  </style>
+        .image-caption {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .news-body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            text-align: left;
+        }
+
+        /* Penyesuaian agar foto di dalam konten CKEditor tampil rapi */
+        .news-body img {
+            max-width: 100%; 
+            height: auto !important;
+            display: block;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .news-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-widget {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            border-left: 4px solid #2c3e50;
+            padding-left: 10px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .latest-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            text-decoration: none;
+            color: #222;
+        }
+
+        .latest-item img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .latest-item h4 {
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        @media screen and (max-width: 1000px) {
+            .newscontainer { flex-direction: column; }
+            h1.news-title { font-size: 28px; }
+        }
+    </style>
 </head>
 <body>
 
-<html>
-<head>
-<title>SMA 11 Bekasi</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-<link rel="stylesheet" href="css\main.css">
-<link rel="stylesheet" href="css\2.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
-<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-<script src="js\main.js"></script>
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
-
-</head>
-<body>
-
-
+<?php require 'template/header.php'; ?>
 <?php require 'template/sidenav.php'; ?>
 
+<div class="newscontainer">
+    <main class="main-content">
+        <a href="beritautama.php" style="color: #2c3e50; text-decoration: none; font-weight: bold; display: inline-block; margin-bottom: 10px;">
+            <i class="fa fa-arrow-left"></i> Kembali ke Daftar Berita
+        </a>
+        <nav class="breadcrumb">
+            <a href="index.php">Home</a> > <a href="beritautama.php">Berita</a> > Detail
+        </nav>
 
-<div id="body">
- <?php require 'template/header.php'; ?>
+        <h1 class="news-title"><?= htmlspecialchars($b['judul']) ?></h1>
 
+        <div class="meta-info">
+            <div>
+                <span class="author"><strong>Oleh:</strong> Admin SMAN 11</span> | 
+                <span class="date"><?= date('l, d F Y', strtotime($b['tanggal'])) ?></span>
+            </div>
+            <div class="share-icons">
+                <i class="fab fa-facebook-f" style="margin-right:10px; cursor:pointer;"></i>
+                <i class="fab fa-whatsapp" style="cursor:pointer;"></i>
+            </div>
+        </div>
 
-  <div class="news-detail-container">
-    <h2><?= htmlspecialchars($b['judul']) ?></h2>
-    <span class="news-date"><i class="fa-regular fa-calendar"></i> <?= date('d F Y', strtotime($b['tanggal'])) ?></span>
-    <img src="admin/upload/<?= htmlspecialchars($b['gambar']) ?>" alt="<?= htmlspecialchars($b['judul']) ?>">
-    <p><?= nl2br($b['isi']) ?></p>
+        <div class="news-image-wrapper">
+            <img src="admin/upload/<?= htmlspecialchars($b['gambar']) ?>" alt="<?= htmlspecialchars($b['judul']) ?>">
+            <div class="image-caption">Foto: Dokumentasi SMAN 11 Bekasi</div>
+        </div>
 
-    <a href="beritautama.php" class="back-button"><i class="fa-solid fa-arrow-left"></i> Kembali ke Berita</a>
-  </div>
+        <article class="news-body">
+            <?= $b['isi'] ?>
+        </article>
 
-<div class="logoPanit">
-  <img class="fotoPanit" src="assets\LOGOPANIT.png">
+        <hr>
+    </main>
+
+    <aside class="sidebar">
+        <div class="sidebar-widget">
+            <h3 class="widget-title">Berita Lainnya</h3>
+            <?php while($row = mysqli_fetch_assoc($latest_q)): ?>
+            <a href="news_detail.php?id=<?= $row['id'] ?>" class="latest-item">
+                <img style="max-height: 50px;" src="admin/upload/<?= $row['gambar'] ?>" alt="">
+                <div>
+                    <h4><?= mb_strimwidth(htmlspecialchars($row['judul']), 0, 50, "...") ?></h4>
+                    <small style="color:#999"><?= date('d M Y', strtotime($row['tanggal'])) ?></small>
+                </div>
+            </a>
+            <?php endwhile; ?>
+        </div>
+    </aside>
 </div>
 
-  <?php require 'template/footer.php'; ?>
+<?php require 'template/footer.php'; ?>
+
+<script src="js/main.js"></script>
 </body>
-<script src="js\main.js"></script>
 </html>

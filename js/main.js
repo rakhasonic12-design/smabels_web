@@ -7,10 +7,11 @@ function myFunction() {
   }
 }
 
+
  
  
 function openNav() {
-    document.getElementById("mySidepanel").style.width = "300px";
+    document.getElementById("mySidepanel").style.height = "300px";
   }
   
 function closeNav() {

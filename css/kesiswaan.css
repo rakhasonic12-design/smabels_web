@@ -1,0 +1,363 @@
+:root {
+            --bg-body: #f8fafc;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --primary-color: #1d2f5d; /* Warna identitas sekolah */
+        }
+
+       
+        /* Container Utama yang Menampung Grid */
+        /* --- KUNCI: CSS GRID TIGA KOLOM --- */
+     .agenda-container { 
+     max-width: 1300px;
+    margin: 0 auto; 
+    padding: 20px; 
+    font-family: 'sans-serif';
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  /* Banner Hari Ini */
+
+  /* List Agenda dibuat Full Width */
+ .list-agenda { 
+    display: grid;
+    /* Default untuk Mobile: 1 kolom penuh */
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+    padding: 20px;
+    margin: 0 auto;/* Lebar maksimal agar kartu tidak terlalu melar di layar ultra-wide */
+}
+
+/* Kartu Agenda */
+.kartuAgenda {
+    display: flex; /* Tetap horizontal */
+    align-items: stretch; /* Memastikan indicator kiri setinggi konten kanan */
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #f1f5f9;
+    overflow: hidden;
+    height: 115px; /* Tinggi tetap agar rapi dan tipis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+}
+
+.kartuAgenda:hover {
+    transform: translateY(-3px); /* Efek melayang lebih modern */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: #cbd5e1;
+}
+
+/* Sisi Kiri (Gambar) */
+.agenda-side-indicator {
+    width: 100px; /* Sedikit diperlebar agar gambar lebih jelas */
+    background-color: var(--bg-soft);
+    flex-shrink: 0;
+}
+
+.icon-box {
+    width: 100%;
+    height: 100%;
+}
+
+.icon-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Konten Utama */
+.agenda-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-width: 0; /* Penting agar teks panjang bisa terpotong (ellipsis) */
+}
+
+.agenda-body {
+    width: 100%;
+}
+
+.agenda-body h3 {
+    font-size: 17px; /* Ukuran proporsional untuk kartu tipis */
+    margin: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+    line-height: 1.3;
+    /* Proteksi teks panjang */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.author {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 3px;
+    display: block;
+}
+
+/* Tombol Beli */
+.btn-beli {
+    display: inline-block;
+    color: white !important;
+    background-image: var(--second-gradient);
+    border-radius: 6px;
+    padding: 6px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    
+}
+
+.btn-beli:hover {
+    opacity: 0.9;
+    background-color: #334155;
+}
+
+@media (min-width: 1200px) {
+    .list-agenda {
+        /* KUNCI: Mengunci tampilan tepat menjadi 3 kolom */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .list-agenda {
+        grid-template-columns: repeat(2, 1fr); /* 2 kolom di tablet agar tidak sesak */
+    }
+}
+
+/* Media Query untuk Mobile Sangat Kecil */
+@media (max-width: 400px) {
+    .kartuAgenda {
+        height: 90px;
+    }
+    .agenda-side-indicator {
+        width: 80px;
+    }
+    .agenda-content {
+        padding: 0 12px;
+    }
+    .agenda-body h3 {
+        font-size: 14px;
+    }
+}
+
+
+/* Responsif */
+@media (max-width: 480px) {
+    .kartuAgenda {
+        height: auto;
+        min-height: 110px;
+    }
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.profileHero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  
+  
+}
+
+.profileHero-container {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 1200px;
+  text-align: center;
+  align-content: center;
+  padding: 20px;
+ 
+  
+
+}
+
+.profileHero-container h1 {
+  font-size: 4rem;
+  color: var(--primary-color);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 15px 0;
+}
+
+.profileHero-container .sekolah {
+  font-size: 6rem;
+  color: var(--primary-color);
+  font-weight: 900;
+}
+
+
+.profileHero-container .profileHero-tag {
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  display: inline-block;
+  padding: 5px 20px;  
+  border-radius: 50px;
+  font-weight: 500;
+}
+
+
+.profileHero-container .profileHero-description {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.carousel-wrapper {
+    position: relative; /* Agar tombol absolute menempel di sini */
+    display: flex;
+    align-items: center;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100; /* Agar tombol tidak tertutup kartu */
+    background: #1d2f5d; /* Sesuaikan warna sekolah */
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.nav-btn.prev { left: 10px; }
+.nav-btn.next { right: 10px; }
+
+
+/* Sembunyikan panah di layar sentuh (mobile) agar lebih clean */
+@media (max-width: 768px) {
+    .nav-btn { display: none; }
+    .nav-btn.prev { left: 5px; } /* Opsional: tetap munculkan tapi di dalam */
+    .nav-btn.next { right: 5px; }
+}
+.ekskul-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Sembunyikan scrollbar Firefox */
+    padding: 20px 5px;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.ekskul-container::-webkit-scrollbar {
+    display: none; /* Sembunyikan scrollbar Chrome/Safari */
+}
+
+.ekskul-card {
+    /* Tambahkan atau sesuaikan bagian ini */
+    max-width: 325px; /* Mengunci lebar kartu agar tidak mengecil dalam flex */
+    flex: 0 0 auto;
+    scroll-snap-align: center; /* Kartu akan otomatis berhenti di tengah saat di-scroll */
+    
+    /* Sisa kode Anda tetap sama */
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card-image-wrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--second-color);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card-body h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.card-body p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-primary {
+  text-decoration: none;
+  background: var(--primary-color); /* Warna solid gelap */
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.5s ease;
+}
+
+
+.member-count {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* Hover State */
+.ekskul-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #cbd5e1;
+}
+
+.ekskul-card:hover img {
+  transform: scale(1.05);
+}

@@ -60,6 +60,17 @@ include 'template/header.php';
     </div>
 </div>
 
+  <div class="col-md-3 mb-4">
+    <div class="card border-info shadow-sm">
+        <div class="card-body text-center">
+            <h5 class="card-title text-info">Sekolah</h5>
+            <p class="card-text small text-muted">Kelola data sekolah</p>
+            <a href="sekolah.php" class="btn btn-sm btn-info text-white">Lihat</a>
+        </div>
+    </div>
+</div>
+
+
 
   </div>
 </div>

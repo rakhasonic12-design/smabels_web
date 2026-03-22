@@ -4,7 +4,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $host = "localhost";
 $user = "root";
 $pass = ""; // kosongkan "" jika default Laragon
-$db   = "db_siswa";
+$db   = "db_smabels";
 $port = 3306;
 
 try {

@@ -7,7 +7,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $host = '127.0.0.1';   // WAJIB pakai ini, bukan localhost
 $user = 'root';
 $pass = '';      // pastikan sama dengan phpMyAdmin
-$db   = 'db_siswa';
+$db   = 'db_smabels';
 $port = 3306;          // default MySQL Laragon
 
 try {
@@ -227,7 +227,7 @@ if (isset($_POST['cetak'])) {
 <div class="aplikasi-siswa">
   <h1>Pengumuman Kelulusan Online</h1>
   <p>Masukkan NISN Anda untuk melihat surat kelulusan:</p>
-  <div class="container">
+  <div class="apk-container">
     <form method="POST" class="simple-form">
       <input type="text" name="nisn" class="text-input" placeholder="Masukkan NISN anda" required>
       <button type="submit" name="cetak" class="enter-btn">Lihat & Cetak PDF</button>
@@ -235,9 +235,7 @@ if (isset($_POST['cetak'])) {
   </div>
 </div>
 
-<div class="logoPanit">
-  <img class="fotoPanit" src="assets\LOGOPANIT.png">
-</div>
+
 
 <?php require 'template/footer.php'; ?>
 </body>

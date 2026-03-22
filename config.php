@@ -2,12 +2,13 @@
 // config.php
 
 $host = '127.0.0.1';   // WAJIB, jangan localhost
-$db   = 'db_siswa';
+$db   = 'db_smabels'; // GANTI dengan nama database Anda
 $user = 'root';
 $pass = '';
 $port = 3306;
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=utf8mb4";
+$conn = mysqli_connect($host, $user, $pass, $db);
 
 try {
     $pdo = new PDO($dsn, $user, $pass, [

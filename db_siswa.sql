@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2025 at 03:26 PM
+-- Generation Time: Mar 15, 2026 at 05:05 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,7 +38,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'd8da51620f8a4f3c3db01e1bcc36c2b7');
+(1, 'admin11', 'eb1baea1dc444e48965c1fab3df84ee2'),
+(4, 'guru', '242526');
 
 -- --------------------------------------------------------
 
@@ -58,10 +59,8 @@ CREATE TABLE `agenda` (
 --
 
 INSERT INTO `agenda` (`id`, `judul`, `isi`, `tanggal`) VALUES
-(6, 'Tes Kemampuan Akademik (TKA)', NULL, '2025-11-03 00:00:00'),
-(7, 'Eleven Seni dan Tradisi', NULL, '2025-10-28 00:00:00'),
-(8, 'Hari Guru Nasional', NULL, '2025-11-25 00:00:00'),
-(9, 'Upacara Senin', NULL, '2025-10-20 00:00:00');
+(14, 'Pengumuman SNBP', NULL, '2026-03-21 00:00:00'),
+(15, 'UTBK-SNBT', NULL, '2026-04-21 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -85,7 +84,8 @@ INSERT INTO `aspirasi` (`id`, `nama`, `role`, `isi`, `tanggal`) VALUES
 (1, 'yuda', 'Siswa', 'ini contoh aja', '2025-10-17 04:01:29'),
 (2, 'yuda', 'OrangTua', 'Sma keren\\r\\n', '2025-10-17 07:06:33'),
 (3, 'yuda', 'Guru', 'sma keren', '2025-10-17 07:08:40'),
-(4, 'yuda', 'Masyarakat', 'sma keren', '2025-10-17 07:09:13');
+(4, 'yuda', 'Masyarakat', 'sma keren', '2025-10-17 07:09:13'),
+(5, 'Rakha', 'Siswa', 'Oke', '2025-12-31 09:11:26');
 
 -- --------------------------------------------------------
 
@@ -110,9 +110,32 @@ INSERT INTO `berita` (`id`, `judul`, `kategori`, `isi`, `gambar`, `tanggal`) VAL
 (13, 'SISWA BERPRESTASI!-Tim Basket SMAN 11 Kota Bekasi Berhasil Mendapat Juara 1 pada ELATE CUP.', 'Prestasi', 'Selamat kepada Tim Basket SMAN 11 Kota Bekasi berhasil meraih Juara 1 Basket Puteri ELATE CUP 2025 di SMK PENABUR Kota Wisata! Kerja keras, kekompakan, dan semangat juang membuahkan hasil terbaik. Terus berprestasi dan jadi inspirasi!', '1760694260.jpeg', '2025-10-17 14:21:20'),
 (14, 'SISWA BERPRESTASI!-Siswa SMAN 11 Kota Bekasi Berhasil mendapat penghargaan di OSN   Bidang Geografi.', 'Prestasi', 'Dhava Sastrajendra Pandy berhasil meraih Honorable Mention Olimpiade Sains Nasional bidang Geografi yang diselenggarakan pada 6-11 Oktober 2025 di Universitas Muhammadiyah Malang!\\r\\nKerja keras, dedikasi, dan semangat belajar tinggi membuahkan hasil yang membanggakan. Terus melangkah dan menginspirasi!', '1760694197.jpeg', '2025-10-17 14:24:58'),
 (15, 'SISWA BERPRESTASI!-Tim PMR SMAN 11 Kota Bekasi meraih Juara 2 Unggulan  di lomba Cepat Tepat PMR', 'Prestasi', 'ALTHAF WANDRA PRATAMA dan AHMAD MUBARAK AL AZIZ berhasil meraih Juara Unggulan 2 dalam Lomba Cepat Tepat PMR Terima kasih atas kerja keras, semangat, dan kekompakan seluruh tim!', '1760694305.jpeg', '2025-10-17 16:45:05'),
-(16, 'SISWA BERPRESTASI!-Tim RAVEN SMAN 11 Kota Bekasi berhasil meraih Juara 2 Ratoeh Jaroeh', 'Prestasi', 'Tim RAVEN SMA Negeri 11 Bekasi atas prestasinya meraih Juara 2 Lomba Ratoh Jaroe dalam ajang Fussion 14 2025 di SMAN 5 Bekasi! 🏅🌟 Teruslah melestarikan budaya dan menari dengan sepenuh hati 💖 Kami bangga padamu!', '1760694377.jpeg', '2025-10-17 16:46:17'),
-(17, 'BERITA TERKINI!-SMAN 11 Kota Bekasi mengikuti kegiatan Bimbingan Teknis Coding dan Kecerdasan Artifisial', 'Kegiatan', 'SMA Negeri 11 Bekasi terus berkomitmen untuk meningkatkan kompetensi guru dan siswa dalam menghadapi era digital. Pada Senin, 14 Juli 2025, sekolah mengikuti kegiatan Bimbingan Teknis Coding dan Kecerdasan Artifisial yang diselenggarakan oleh Disdik Jabar dan Kemendikbudristek. Kegiatan ini bertujuan untuk memperkenalkan dasar-dasar koding dan pemrograman kecerdasan artifisial yang telah menjadi bagian dari kurikulum nasional. Melalui pelatihan ini, diharapkan guru dan peserta didik dapat: 💻 Menguasai dasar pemrograman KA (Kecerdasan Artifisial) 🧠 Mengintegrasikan teknologi AI dalam pembelajaran 🚀 Mempersiapkan generasi muda menghadapi tantangan teknologi masa ', '1760694441.jpeg', '2025-10-17 16:47:21'),
+(16, 'SISWA BERPRESTASI!-Tim RAVEN SMAN 11 Kota Bekasi berhasil meraih Juara 2 Ratoeh Jaroeh', 'Prestasi', 'Tim RAVEN SMA Negeri 11 Bekasi atas prestasinya meraih Juara 2 Lomba Ratoh Jaroe dalam ajang Fussion 14 2025 di SMAN 5 Bekasi! 🏅🌟 Teruslah melestarikan budaya dan menari dengan sepenuh hati 💖 Kami bangga padamu!\\r\\n\\r\\n1. Aurellia Deswita \\r\\n2. Farand', '1760694377.jpeg', '2025-10-17 16:46:17'),
+(17, 'BERITA TERKINI!-SMAN 11 Kota Bekasi mengikuti kegiatan Bimbingan Teknis Coding dan Kecerdasan Artifisial', 'Kegiatan', '<p>SMA Negeri 11 Bekasi terus berkomitmen untuk meningkatkan kompetensi guru dan siswa dalam menghadapi era digital. Pada Senin, 14 Juli 2025, sekolah mengikuti kegiatan Bimbingan Teknis Coding dan Kecerdasan Artifisial yang diselenggarakan oleh Disdik Jabar dan Kemendikbudristek. Kegiatan ini bertujuan untuk memperkenalkan dasar-dasar koding dan pemrograman kecerdasan artifisial yang telah menjadi bagian dari kurikulum nasional. Melalui pelatihan ini, diharapkan guru dan peserta didik dapat: 💻 Menguasai dasar pemrograman KA (Kecerdasan Artifisial) 🧠 Mengintegrasikan teknologi AI dalam pembelajaran 🚀 Mempersiapkan generasi muda menghadapi tantangan teknologi masa</p><p><br></p><ol><li data-list=\\\"ordered\\\"><span class=\\\"ql-ui\\\" contenteditable=\\\"false\\\"></span>Bu Eka</li><li data-list=\\\"ordered\\\"><span class=\\\"ql-ui\\\" contenteditable=\\\"false\\\"></span>Bu Ririn</li><li data-list=\\\"ordered\\\"><span class=\\\"ql-ui\\\" contenteditable=\\\"false\\\"></span>Bu Yohati</li><li data-list=\\\"ordered\\\"><span class=\\\"ql-ui\\\" contenteditable=\\\"false\\\"></span>Bu Selly</li><li data-list=\\\"ordered\\\"><span class=\\\"ql-ui\\\" contenteditable=\\\"false\\\"></span>Pak Kamal</li></ol>', '1760694441.jpeg', '2025-10-17 16:47:21'),
 (18, 'BERITA TERKINI!-SMAN 11 Kota Bekasi melaksanakan Asesmen Sumatif Tengah Semester pada tanggal 29 September - 3 Oktober 2025.', 'Pengumuman', 'SMAN 11 Bekasi melaksanakan Asesmen Sumatif Tengah Semester Ganjil Tahun Pelajaran 2025/2026 pada hari Senin–Jumat, 29 September–03 Oktober 2025. Semoga seluruh murid dapat mengikuti asesmen dengan penuh semangat, jujur, dan percaya diri untuk meraih hasil terbaik', '1760694501.jpeg', '2025-10-17 16:48:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `data_sekolah`
+--
+
+CREATE TABLE `data_sekolah` (
+  `id` int(11) NOT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `nama_lengkap` varchar(255) DEFAULT NULL,
+  `angka` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `data_sekolah`
+--
+
+INSERT INTO `data_sekolah` (`id`, `icon`, `nama_lengkap`, `angka`) VALUES
+(0, '🎓', 'Alumni', '1200'),
+(0, '👨‍🏫', 'Tenaga Didik', '45'),
+(0, '🏫', 'Ruang Kelas', '24'),
+(0, '🏆', 'Prestasi', '200');
 
 -- --------------------------------------------------------
 
@@ -131,7 +154,6 @@ CREATE TABLE `fasilitas` (
 --
 
 INSERT INTO `fasilitas` (`id`, `nama`, `gambar`) VALUES
-(3, 'Pojok Baca', 'IMG-20251017-WA0022.jpg'),
 (4, 'Ruang Podcast', 'IMG-20251017-WA0021.jpg'),
 (5, 'Perpustakaan', 'IMG-20251017-WA0025.jpg'),
 (6, 'Lab. Komputer', 'IMG-20251017-WA0033.jpg'),
@@ -280,7 +302,7 @@ CREATE TABLE `prestasi` (
 INSERT INTO `prestasi` (`id`, `kategori`, `jumlah`) VALUES
 (1, 'Akademik', 165),
 (2, 'Non-akademik', 220),
-(3, 'Prestasi Sekolah', 3);
+(3, 'Prestasi Sekolah', 70);
 
 -- --------------------------------------------------------
 
@@ -468,19 +490,19 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `agenda`
 --
 ALTER TABLE `agenda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `aspirasi`
 --
 ALTER TABLE `aspirasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `berita`

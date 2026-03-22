@@ -1,74 +1,233 @@
 :root {
---primary-color: #2d5385;
---second-color: #FD9F33;
- --white-color:#f6f4f5;
-    --beige-color:#d2c8bc;
-    --table-color:#f0eff1;
-    --black-color:#262721;
-    --logo-beige-color:#6b4c3a;
-    --primary-font:"Montserrat", sans-serif;
-    --logo-font:"Poppins", sans-serif;
+--primary-color: #1d2f5d;
+--second-color: #ffa200;
+--second-color-dark: #cd6e01;
+--content-bg: #e5edff;
+
+--white-color:#ffffff;
+--text-white-bg: #626262;
+
+--primary-font: "Poppins", sans-serif;
+--logo-font:"Poppins", sans-serif;
+
+--glass-bg: rgba(255, 255, 255, 0.85);
+--shadow: 0px 2px 25px 0px rgba(0, 0, 0, 0.182);
+--second-gradient: linear-gradient(135deg, #ffa200, #ff821c, #f47004);
+--primary-gradient: linear-gradient(180deg, #f0f0f0, #ffffff00);
 }
 
+* {
+  box-sizing: border-box;
+  transition: 0.5s;
+  scroll-behavior: smooth;
+}
 
- .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      background: var(--primary-color);
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
+html {
+  scroll-behavior: smooth;
+  transition: 0.5;
   
- }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      
-    }
-
-    .brand img.logo {
-      height: 34px;
-      width: auto;
-    }
-
-    .brand-name {
-      font-weight: 700;
-      font-size: 1.05rem;
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 6px;
-    }
-
-    .nav-links a:hover {
-      background: rgba(17, 24, 39, 0.2);
-      transform: scale(1.1);
-      
-    }
+}
 
 
-.openbtn{
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: var(--primary-font);
+  transition: 0.5s;
+  font-weight: 450;
+  background-color: var(--white-color);
+ 
+}
+
+.section-header {
+  /* Menjaga agar elemen dekoratif tidak menyebabkan scroll horizontal di layar kecil */
+  overflow: visible; 
+  padding: 10px 0;
+ 
+}
+
+.section-header h1 {
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
+  color: #1a237e; /* Biru Tua Formal */
+  z-index: 1;
+  line-height: 1;
+  /* Membuat font responsif: mengecil di mobile, membesar di desktop */
+  font-size: clamp(1.7rem, 4vw, 1.85rem); 
+  
+}
+
+.section-header h1::before {
+  content: "";
+  position: absolute;
+  /* Menggunakan em agar posisi & ukuran kotak ikut mengecil saat font mengecil */
+  top: -0.3em; 
+  left: -0.3em;
+  width: 0.6em;
+  height: 0.6em;
+  background: var(--second-gradient); /* Aksen Kuning */
+  z-index: -1;
+  border-radius: 4px; /* Kotak sedikit tumpul */
+}
+
+.section-header h1::after {
+  content: "";
+  position: absolute;
+  /* Posisi garis disesuaikan secara relatif */
+  bottom: -0.15em;
+  left: 1em;
+  width: 90%; /* Garis tetap 90% dari lebar teks */
+  height: 0.4em;
+  background: rgba(232, 115, 26, 0.232); /* Oranye/Biru Transparan sesuai kode Anda */
+  z-index: -2;
+
+}
+
+/* Penyesuaian khusus untuk layar sangat kecil */
+@media (max-width: 480px) {
+  .section-header h1::after {
+    left: 0.5em; /* Menggeser sedikit ke kiri agar lebih seimbang di layar kecil */
+    width: 100%; /* Memperlebar garis sedikit agar teks pendek tetap terlihat elegan */
+  }
+}
+
+.buttons {
+  padding: 25px 0;
+  display: inline-flex;
+  margin: 0px auto;
+}
+
+.btn-primary {
+  background-image: var(--second-gradient);
+  color: var(--white-color);
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: clamp(0.85rem, 4vw, 1rem); 
+}
+
+.btn-primary:hover {
+  transform: translateY(-7px);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--primary-color);
+  backdrop-filter: blur(10px); /* Efek blur modern */
+  box-shadow: 0 2px 15px rgba(253, 222, 222, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+ 
+ 
+}
+
+.topbar .container {
+  margin: 0 auto;
+  display: flex;
+  padding: 10px 20px;
+  /* Tambahkan baris di bawah ini */
+  flex-direction: row; /* Paksa satu baris */
+  flex-wrap: nowrap;   /* Jangan biarkan elemen turun ke bawah */
+  align-items: center; /* Sejajarkan logo dan burger secara vertikal */
+  justify-content: space-between;
+  width: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1; /* Berikan ruang agar brand tidak terhimpit */
+}
+
+.logo {
+  height: 45px;
+  width: auto;
+}
+
+.brand-name {
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white-color);
+  letter-spacing: -0.5px;
+}
+
+.brand-name span {
+  font-weight: 500;
+  color: var(--white-color);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* Tambahkan ini agar area navigasi tidak turun */
+  flex-shrink: 0; 
+}
+
+/* Navigation Links */
+.menu-items {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* Jarak antar link navigasi */
+}
+
+.nav-item {
+  text-decoration: none;
+  color: var(--white-color);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -22px;
+  left: 0;
+  background-color: var(--white-color);
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover {
+  transform: translateY(-2px);
+}
+
+.nav-item:hover::after {
+  width: 105%;
+}
+
+/* Mobile Toggle */
+.openbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: var(--white-color);
   font-size: 20px;
+  background: none;
+  border: none;
 }
 
-.sidepanel .closebtn {
-  font-size: 25px;
+.openbtn:hover {
+  transform: translateY(-2px);
 }
+
+
 
 
 .sidepanel  {
@@ -82,7 +241,8 @@
   background-color: var(--primary-color);
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 25px;
+  padding-top: 30px;
+  
   
 }
 
@@ -90,10 +250,10 @@
   margin: 0;
   padding: 0;
   font-family: inherit;
-  font-size: 12px;
+  font-size: 18px;
   line-height: 17px;
   padding: 20px 0px 5px 0px;
-  color: rgba(255, 255, 255, 0.845);
+  color: var(--second-color);
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.250em;
@@ -107,7 +267,13 @@
   color: white;
   display: block;
   transition: 0.3s;
+  width: fit-content;
   
+}
+
+
+.sidepanel a:hover {
+  transform: translateX(-7px);
 }
 
 .sidePanelink {
@@ -120,24 +286,15 @@
 }
 
 .sub-link {
-  padding: 5px 5px;
-  border-left: 2px solid var(--second-color);
+  margin-top: 10px;
   margin-left: 10px;
 }
 
-.sub-link a{
-  font-size: 15px;
-}
-
-.sidepanel a:hover {
-  color: #ffffff90;
-  transform: scale(1.1);
-}
 
 .sidepanel .closebtn {
   position: absolute;
   top: 0;
-  right: 20px;
+  right: 10px;
   font-size: 36px;
   padding: 5px;
 }
@@ -149,7 +306,7 @@
 
 .orange {
   color: var(--second-color);
-  font-weight: bold;
+
   
 }
 
@@ -170,6 +327,7 @@
   background-color: var(--primary-color);
   padding: 20px;
   gap: 20px;
+  margin-top: 100px;
 }
 
 .footer .contain {
@@ -218,6 +376,7 @@
 
 .footer .col ul li a{
   text-decoration: none;
+  color: var(--white-color);
 }
 
 .footer .col ul .icon{
@@ -234,7 +393,7 @@
   height: 200px;
 }
 
-.footer .col ul li:hover {
+.footer .col ul li a:hover {
   color: rgb(208, 208, 208);
   transition: .2s;
   -webkit-transition: .1s;
@@ -272,10 +431,12 @@
     color: white;
 }
 
+.menu-items {
+  display: none;
+
 
 }
 
-@media screen and (max-width: 1000px) {
   .footer {
   padding: 5px;
   gap: 5px;

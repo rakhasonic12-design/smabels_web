@@ -56,9 +56,7 @@
   </div>
 </div>
 
-<div class="logoPanit">
-  <img class="fotoPanit" src="assets\LOGOPANIT.png">
-</div>
+
 
 <?php require 'template/footer.php'; ?>
 </body>

@@ -5,7 +5,7 @@
 <title>SMA 11 Bekasi</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="icon" type="image/x-icon" href="assets\logosebelas.png">
 <link rel="stylesheet" href="css\main.css">
 <link rel="stylesheet" href="css\2.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,7 +16,44 @@
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+<style>
+    .topbar {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        padding: 15px 0;
+        /* Status Awal: Transparan */
+        background-color: transparent; 
+        transition: all 0.3s ease-in-out;
+    }
 
+    /* Class ini akan ditambahkan oleh JavaScript saat user scroll */
+    .topbar.scrolled {
+        background-color: var(--primary-color); /* Warna hijau SMAN 11 */
+        padding: 5px; /* Header mengecil sedikit saat di-scroll agar lebih modern */
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Mengatur warna teks agar tetap kontras saat background berubah */
+    .topbar.scrolled .brand-name,
+    .topbar.scrolled .brand-name span,
+    .topbar.scrolled .openbtn span {
+        color: white !important;
+    }
+
+    .nav-item::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -30px;
+  left: 0;
+  background-color: var(--white-color);
+  transition: width 0.3s ease;
+}
+</style>
 </head>
 <body>
 
@@ -24,148 +61,243 @@
 <?php require 'template/sidenav.php'; ?>
 
 <div id="body">
- <div class="topbar" id="topbar" aria-label="Site header">
-    <div class="brand" aria-label="School brand">
-      <img class="logo" src="assets\logosebelas.png" alt="School Logo">
-      <a href="index.php" class="brand-name">SMAN 11 Bekasi</a>
+ <header class="topbar" id="topbar">
+  <div class="container">
+    <div class="brand">
+      <img class="logo" src="assets/logosebelas.png" alt="SMAN 11 Bekasi Logo">
+      <a href="index.php" class="brand-name">SMAN 11 <span>Bekasi</span></a>
     </div>
 
-    <nav class="nav-links" aria-label="Main navigation">
-      <div id="collapsing">
-        <a href="#fasilitas">Fasilitas</a>
-        <a href="#prestasi">Prestasi</a>
-        <a href="#berita">Berita</a>
-        <a href="#agenda">Agenda</a>
+   <nav class="nav-links" aria-label="Main navigation">
+      <div class="menu-items" id="menuItems">
+        <a href="#fasilitas" class="nav-item">Fasilitas</a>
+        <a href="#prestasi" class="nav-item">Prestasi</a>
+        <a href="#berita" class="nav-item">Berita</a>
+        <a href="#agenda" class="nav-item">Agenda</a>
       </div>
-        <a class="openbtn" onclick="openNav()"><i class="fi fi-rs-burger-menu"></i></a>
+
+        <button class="openbtn" onclick="openNav()" aria-label="Toggle Menu">
+          <span>☰</span>
+        </button>
     </nav>
-</div>
-
-  <section class="hero" aria-label="Hero section gradient">
-    <div class="hero-content">
-      <h2>Step Into a Brighter Future with Us</h2>
-      <p>Become a part of our school!</p>
-      <div class="cta">
-        <a href="https://www.instagram.com/sman11bekasi?igsh=MWpwMnhtZ29vaGo4Mw==" class="btn primary" href="#apply">Visit Us</a>
-      </div>
-    </div>
-  </section>
-
-
-
-<div class="welcome" data-aos="fade-up">
-  <div class="sambutan">
-    <div class="section">
-      <h1><span class="blue">Welcome to</span> SMAN 11 Bekasi</h1>
-      </div>
-      <p>Temukan berbagai informasi terkini seputar kegiatan, prestasi, 
-        dan program unggulan sekolah yang dirancang untuk mendukung perkembangan siswa secara menyeluruh.
-        Jelajahi menu informasi, ikuti berita terbaru, dan jadilah bagian dari komunitas pendidikan yang inspiratif bersama kami.
-        Klik dan mulai eksplorasi sekarang untuk mengenal lebih dekat sekolah kami!</p>
-    </div>
-
-  <div class="aplikasi">
-    <div class="fa fa-book" aria-hidden="true"></div>
-    <a href="https://sebelas.my.id/"><b>Perpustakaan Digital</b></a>
-  </div>
-</div>
-
-
-<div class="profil" id="profil" data-aos="fade-up">  
-  <div class="image-container">
-    <iframe src="https://www.youtube.com/embed/DQI-uMOmkVo?si=hnW-MXHU5IJSnrIV" 
-    title="YouTube video player" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-
-  <div class="parProfil">
-    <div class="katProfil">
-      <div class="section">
-      <h1><span class="orange">Profil</span> Sekolah </h1>
-      </div>
-    </div>
-      <p>SMAN 11 Kota Bekasi merupakan salah satu sekolah unggulan yang berkomitmen melahirkan generasi berprestasi, berkarakter, 
-        dan siap bersaing di masa depan. Didukung dengan fasilitas modern, tenaga pendidik profesional, serta lingkungan belajar 
-        yang nyaman dan inspiratif, SMAN 11 terus mencetak siswa-siswi yang kreatif, inovatif, dan berintegritas tinggi.
-        Kami percaya bahwa pendidikan bukan hanya tentang pengetahuan, tetapi juga pembentukan karakter yang berakhlak mulia.
-      </p>
       
+  </div>
+</header>
+
+
+<section class="hero-school">
+  <div class="hero-overlay"></div>
+  
+  <div class="container hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">SMAN 11 <br><span>Kota Bekasi</span></h1>
+      <p class="hero-description">
+        Mewujudkan generasi emas yang cerdas dan berkarakter melalui pendidikan yang inovatif.
+      </p>
+      <div class="hero-actions">
+        <a href="https://www.instagram.com/sman11bekasi/" class="btn-primary">Kunjungi Kami</a>
+      </div>
+    </div>
+  </div>
+
+<?php
+include 'config.php';
+// Ambil data dari tabel sekolah
+$query = mysqli_query($conn, "SELECT * FROM data_sekolah");
+?>
+
+<div class="stats-wrapper">
+    <div class="stats-grid">
+      
+      <?php while($row = mysqli_fetch_assoc($query)): ?>
+      <div class="stat-card">
+        <div class="stat-icon">
+            <?php 
+            // Cek apakah icon berisi emoji/teks atau file gambar
+            if (filter_var($row['icon'], FILTER_VALIDATE_URL) || file_exists("assets/img/icons/" . $row['icon'])) {
+                echo '<img src="assets/img/icons/'.$row['icon'].'" width="50" height="50" alt="icon">';
+            } else {
+                // Jika isinya emoji atau class font-awesome (seperti di HTML Anda)
+                echo $row['icon']; 
+            }
+            ?>
+        </div>
+        <div class="stat-data">
+          <h3> <?php 
+            $raw = $row['angka'];
+            // Ambil hanya angka saja agar tidak error di PHP 8.4
+            $cleanNumber = (float) preg_replace('/[^0-9]/', '', $raw);
+            
+            echo number_format($cleanNumber, 0, ',', '.'); 
+            
+            // Jika data aslinya mengandung '+', tampilkan kembali setelah angka
+            if (strpos($raw, '+') !== false) echo '+'; 
+        ?></h3>
+          <p><?= $row['nama_lengkap']; ?></p>
+        </div>
+      </div>
+      <?php endwhile; ?>
+
+      <?php if(mysqli_num_rows($query) == 0): ?>
+          <p>Data statistik belum tersedia.</p>
+      <?php endif; ?>
+
     </div>
 </div>
+</section>
 
-<div class="fasilitas" id="fasilitas" data-aos="fade-up">
-  <div class="section">
-   <h1 class="orange">Fasilitas Sekolah</h1>
+
+
+
+<div class="section" data-aos="fade-up">
+  <div class="section-container">
+    <div class="welcome-img">
+      <img src="assets\Lapangan Dalam.jpg">
+    </div>
   </div>
-  <section class="gallery-container">
-  <?php
-$fasilitas = mysqli_query($conn, "SELECT * FROM fasilitas");
-?>
 
-<style>
-.fasilitas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    gap: 20px;
-    margin-top: 20px;
-}
+  <div class="section-container">
+   <div class="section-par">
+    <div class="section-header">
+     <h1>Selamat Datang!</h1>
+    </div>
+    <P>Selamat datang di situs web SMAN 11 Bekasi! Jelajahi seputar informasi tentang kami
+     melalui halaman-halaman berikut.
+    </P>
+     <div class="buttons">
+        <a href="#" class="btn-primary">Jelajah</a>
+      </div>
+   </div>
+  </div>
 
-.fasilitas-item {
-    background-color: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+</div>
+  
 
-.fasilitas-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
 
-.fasilitas-item img {
-    width: 100%;
-    height: 180px; 
-    object-fit: cover;
-    display: block;
-}
+<section class="whyMust" id="whyMust" data-aos="fade-up">
+  <div class="container">
+    <div class="section-header-center">
+      <h1>Kenapa Harus <span class="orange-text">SMAN 11 Bekasi?</span></h1>
+      <p>Membentuk generasi unggul dengan dukungan lingkungan dan fasilitas terbaik.</p>
+    </div>
 
-.fasilitas-item p {
-    margin: 10px 0;
-    font-weight: bold;
-    color: #333;
-    font-size: 14px;
-}
+    <div class="whyMust-wrapper">
+      <div class="whyMust-card">
+        <div class="whyMust-icon">
+          <i class="fi fi-rr-tree"></i>
+        </div>
+        <div class="whyMust-text">
+          <h4>Lingkungan Asri</h4>
+          <p>Suasana sekolah yang hijau dan tenang, sangat mendukung konsentrasi belajar siswa setiap hari.</p>
+        </div>
+      </div>
 
-@media (max-width: 768px) {
-    .fasilitas-item img {
-        height: 150px;
-    }
-}
-</style>
+      <div class="whyMust-card">
+        <div class="whyMust-icon">
+          <i class="fi fi-rr-shield"></i>
+        </div>
+        <div class="whyMust-text">
+          <h4>Aman dan Nyaman</h4>
+          <p>Keamanan 24 jam dan budaya sekolah yang inklusif menciptakan rasa nyaman bagi seluruh warga sekolah.</p>
+        </div>
+      </div>
 
-<div class="fasilitas-grid">
-<?php
-while($f = mysqli_fetch_assoc($fasilitas)) {
-    echo '<div class="fasilitas-item">';
-    echo '<img src="admin/upload/'.htmlspecialchars($f['gambar']).'" alt="'.htmlspecialchars($f['nama']).'">';
-    echo '<p>'.htmlspecialchars($f['nama']).'</p>';
-    echo '</div>';
-}
-?>
+      <div class="whyMust-card">
+        <div class="whyMust-icon">
+          <i class="fi fi-rr-school"></i>
+        </div>
+        <div class="whyMust-text">
+          <h4>Fasilitas Lengkap</h4>
+          <p>Mulai dari laboratorium modern hingga sarana olahraga untuk menunjang minat dan bakat siswa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--<div class="fasilitas" id="fasilitas" data-aos="fade-up">
+    <div class="section-header">
+        <h1>Fasilitas Sekolah</h1>
+    </div>
+
+    <section class="gallery-container">
+        <?php
+        $fasilitas = mysqli_query($conn, "SELECT * FROM fasilitas");
+        ?>
+
+        <div class="fasilitas-grid">
+            <?php while($f = mysqli_fetch_assoc($fasilitas)) : ?>
+                <div class="fasilitas-item">
+                    <div class="img-wrapper">
+                        <img src="admin/upload/<?php echo htmlspecialchars($f['gambar']); ?>" 
+                             alt="<?php echo htmlspecialchars($f['nama']); ?>">
+                        
+                        <div class="overlay">
+                            <p><?php echo htmlspecialchars($f['nama']); ?></p>
+                        </div>
+                    </div>
+                </div>
+            <?php endwhile; ?>
+        </div>
+    </section>
+</div>-->
+
+<div class="section reversed" data-aos="fade-up">
+  <div class="section-container">
+   <div class="section-par">
+    <div class="section-header">
+     <h1>Fasilitas</h1>
+    </div>
+    <P>Sekolah kami menyediakan beragam fasilitas untuk mendukung kegiatan mengajar serta membantu siswa agar
+      merasa lebih nyaman berada di sekolah. Klik tombol di bawah untuk mencari tahu!
+    </P>
+     <div class="buttons">
+        <a href="#" class="btn-primary">Jelajah</a>
+      </div>
+   </div>
+  </div>
+
+
+
+<div class="section-container">
+  <div class="fasilitas-section">
+    <div class="fasilitas-wrapper">
+
+      <div class="foto-fasilitas side">
+        <img src="assets/Masjid.jpg" alt="Masjid">
+        <div class="fasilitas-overlay">
+          <p>Masjid Sekolah</p>
+        </div>
+      </div>
+
+      <div class="foto-fasilitas tengah">
+        <img src="assets/Lapangan Dalam.jpg" alt="Lapangan">
+        <div class="fasilitas-overlay">
+          <p>Lapangan Utama</p>
+        </div>
+      </div>
+
+      <div class="foto-fasilitas side">
+        <img src="assets/Ruang podcast.jpg" alt="Ruang Podcast">
+        <div class="fasilitas-overlay">
+          <p>Studio Podcast</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
-</section>
+
+
 </div>
   
 
 <div class="prestasi" id="prestasi" data-aos="fade-up">
-  <div class="section">
-    <h1 class="orange">Prestasi Sekolah</h1>
-  </div>
-  <p class="blue-par">Setiap tahunnya, siswa/siswi kami selalu menorehkan bermacam prestasi yang prestisius, diantaranya:</p>
+  <div class="section-header-center">
+      <h1>Prestasi <span class="orange-text">SMAN 11 Bekasi</span></h1>
+      <p class="blue-par">Setiap tahunnya, siswa/siswi kami selalu menorehkan bermacam prestasi yang prestisius, diantaranya:</p>
+    </div>
 
   <div class="prestasi-container">
     <?php
@@ -186,151 +318,136 @@ while($f = mysqli_fetch_assoc($fasilitas)) {
 
 
 <div class="berita" id="berita" data-aos="fade-up">
-  <div class="section">
-    <h1 class="orange section">Berita Terbaru</h1>
-  </div>
 
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 20px;">
-    <?php
-    $query = mysqli_query($conn, "SELECT id, judul, isi, tanggal, gambar, kategori FROM berita ORDER BY tanggal DESC LIMIT 4");
-    if ($query && mysqli_num_rows($query) > 0) {
-      while ($b = mysqli_fetch_assoc($query)) {
-        $gambar_path = !empty($b['gambar']) ? "admin/upload/".htmlspecialchars($b['gambar']) : "assets/sma11home.png";
-    ?>
-        <div style="
-          width: calc(50% - 20px);
-          background: #fff;
-          border-radius: 10px;
-          overflow: hidden;
-          box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-          display: flex;
-          flex-direction: column;
-          transition: all 0.3s ease;
-        " 
-        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';"
-        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 15px rgba(0,0,0,0.1)';"
-        >
-          <img src="<?= $gambar_path ?>" alt="<?= htmlspecialchars($b['judul']) ?>" style="
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-          ">
-          <div style="padding: 18px;">
-            <?php if (!empty($b['kategori'])): ?>
-              <div style="display:inline-block; background:#007bff; color:#fff; font-size:12px; padding:4px 10px; border-radius:6px; margin-bottom:8px;">
-                <?= htmlspecialchars($b['kategori']) ?>
-              </div>
-            <?php endif; ?>
+    <div class="section-header">
+     <h1>Berita Terbaru</h1>
+    </div>
 
-            <h3 style="font-size: 18px; color: #222; margin: 6px 0 8px;">
-              <a href="news_detail.php?id=<?= (int)$b['id'] ?>" style="text-decoration:none; color:#222;">
-                <?= htmlspecialchars($b['judul']) ?>
-              </a>
-            </h3>
+    <div class="berita-container">
+        <?php
+        $query = mysqli_query($conn, "SELECT id, judul, isi, tanggal, gambar, kategori FROM berita ORDER BY tanggal DESC LIMIT 4");
+        if ($query && mysqli_num_rows($query) > 0) {
+            while ($b = mysqli_fetch_assoc($query)) {
+                $gambar_path = !empty($b['gambar']) ? "admin/upload/".htmlspecialchars($b['gambar']) : "assets/sma11home.png";
+        ?>
+                <article class="news-card">
+                    <div class="news-img-wrapper">
+                        <img src="<?= $gambar_path ?>" alt="<?= htmlspecialchars($b['judul']) ?>" class="news-img">
+                    </div>
+                    
+                    <div class="news-content">
+                        <?php if (!empty($b['kategori'])): ?>
+                            <span class="news-category">
+                                <?= htmlspecialchars($b['kategori']) ?>
+                            </span>
+                        <?php endif; ?>
 
-            <p style="font-size: 14px; color:#555; line-height:1.6; margin-bottom:10px;">
-              <?= substr(strip_tags($b['isi']), 0, 120) ?>...
-            </p>
+                        <h3 class="news-title">
+                            <a href="news_detail.php?id=<?= (int)$b['id'] ?>">
+                                <?= htmlspecialchars($b['judul']) ?>
+                            </a>
+                        </h3>
 
-            <small style="color:#777; font-size:13px;">
-              <i class="fa fa-calendar"></i> <?= date('d M Y', strtotime($b['tanggal'])) ?>
-            </small>
-          </div>
-        </div>
-    <?php
-      }
-    } else {
-      echo "<p style='text-align:center; color:#555;'>Belum ada berita terbaru.</p>";
-    }
-    ?>
-  </div>
+                        <p class="news-excerpt">
+                            <?= strip_tags($b['isi']) ?>
+                        </p>
 
-  <div style="text-align: right; margin-top: 25px;">
-    <a href="beritautama.php" style="
-      display: inline-block;
-      background-color: var(--second-color);
-      color: #fff;
-      padding: 10px 18px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s;
-    "
-    onmouseover="this.style.backgroundColor='var(--second-color';"
-    onmouseout="this.style.backgroundColor='var(--second-color';">
-      Lihat Semua Berita
-    </a>
-  </div>
+                        <div class="news-footer">
+                            <small class="news-date">
+                                <i class="fa fa-calendar-o" style="margin-right: 5px;"></i> 
+                                <?= date('d M Y', strtotime($b['tanggal'])) ?>
+                            </small>
+                            <a href="news_detail.php?id=<?= (int)$b['id'] ?>" style="font-size: 13px; font-weight: 600; color: var(--primary-blue); text-decoration: none;">
+                                Baca Selengkapnya →
+                            </a>
+                        </div>
+                    </div>
+                </article>
+        <?php
+            }
+        } else {
+            echo "<p style='grid-column: 1/-1; text-align:center; color:#555;'>Belum ada berita terbaru.</p>";
+        }
+        ?>
+    </div>
 
-  <style>
-    @media (max-width: 768px) {
-      .berita > div[style*="flex-wrap"] > div {
-        width: 100% !important;
-      }
-    }
-  </style>
+    <div class="view-all-container" style="text-align: center; margin-top: 20px;">
+        <a href="beritautama.php" class="btn-view-all">
+            Lihat Semua Berita →
+        </a>
+    </div>
 </div>
 
-<div class="agenda" id="agenda" data-aos="fade-up">
-  <div class="section">
-    <h1 class="orange">Agenda Sekolah</h1>
-  </div>
-  <?php
+
+<?php
 include 'admin/config.php';
-$tanggal_hari_ini = date('Y-m-d');
-$q = mysqli_query($conn, "SELECT * FROM agenda WHERE tanggal = '$tanggal_hari_ini'");
-if(mysqli_num_rows($q) > 0):
+date_default_timezone_set('Asia/Jakarta');
+
+$today = date('Y-m-d');
+
+// 1. Ambil data untuk Banner Hari Ini
+$queryToday = mysqli_query($conn, "SELECT judul FROM agenda WHERE tanggal = '$today'");
+$agendasToday = mysqli_fetch_all($queryToday, MYSQLI_ASSOC);
+
+// 2. Ambil data untuk List Agenda Mendatang
+$queryUpcoming = mysqli_query($conn, "SELECT * FROM agenda WHERE tanggal >= '$today' ORDER BY tanggal ASC LIMIT 5");
 ?>
-<div style="background-color:#fff8e1; color:#333; padding:12px; text-align:center; font-weight:bold; border-bottom:1px solid #ffd54f;">
-  🔔 Hari ini ada agenda:
-  <?php
-  $first = true;
-  while($a = mysqli_fetch_assoc($q)){
-    if(!$first) echo " &middot; ";
-    echo "<span style='color:#e65100;'>{$a['judul']}</span>";
-    $first = false;
-  }
-  ?>
-</div>
-<?php endif; ?>
+
+
+
+<div class="agenda-container" id="agenda" data-aos="fade-up">
+
+    <div class="section-header">
+     <h1>Agenda Sekolah</h1>
+    </div>
+
+  <?php if (!empty($agendasToday)): ?>
+    <div class="banner-today">
+      🔔 Hari ini: 
+      <?php 
+        $titles = array_column($agendasToday, 'judul');
+        echo "<span>" . implode(" &middot; ", array_map('htmlspecialchars', $titles)) . "</span>";
+      ?>
+    </div>
+  <?php endif; ?>
+
   <div class="list-agenda">
-
-    <?php
-      include 'admin/config.php';
-      date_default_timezone_set('Asia/Jakarta');
-      $today = date('Y-m-d');
-      $agenda = mysqli_query($conn, "SELECT * FROM agenda WHERE tanggal >= '$today' ORDER BY tanggal ASC LIMIT 5");
-
-      if (mysqli_num_rows($agenda) > 0):
-        while ($a = mysqli_fetch_assoc($agenda)):
-    ?>
+    <?php if (mysqli_num_rows($queryUpcoming) > 0): ?>
+      <?php while ($a = mysqli_fetch_assoc($queryUpcoming)): ?>
         <div class="kartuAgenda">
           <div class="fotoAgenda">
             <i class="fi fi-rr-calendar"></i>
           </div>
           <div class="judulAgenda">
             <p><strong><?= htmlspecialchars($a['judul']) ?></strong></p>
-            <span>
-              <?= date('d M Y', strtotime($a['tanggal'])) ?>
-            </span>
+            <span><?= date('d M Y', strtotime($a['tanggal'])) ?></span>
           </div>
         </div>
-    <?php
-        endwhile;
-      else:
-        echo "<p style='text-align:center; color:#666;'>Tidak ada agenda mendatang.</p>";
-      endif;
-    ?>
+      <?php endwhile; ?>
+    <?php else: ?>
+      <p style="text-align:center; color:#666; padding: 20px;">--Belum ada agenda mendatang.--</p>
+    <?php endif; ?>
   </div>
-</div>
-
-
-<div class="logoPanit">
-  <img class="fotoPanit" src="assets\LOGOPANIT.png">
 </div>
 
 
 <?php require 'template/footer.php'; ?>
 
 </body>
+<script>
+  window.addEventListener('scroll', function() {
+    const topbar = document.getElementById("topbar");
+    
+    // Ambil posisi scroll saat ini
+    const scrollPos = window.scrollY || document.documentElement.scrollTop;
+
+    // Jika scroll lebih dari 50px, tambahkan class 'scrolled'
+    if (scrollPos > 50) {
+        topbar.classList.add("scrolled");
+    } else {
+        topbar.classList.remove("scrolled");
+    }
+});
+</script>
 <script src="js\main.js"></script>
 </html>

@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -10,42 +9,75 @@ body {
   color: #333;
 }
 
+.search-section {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        padding: 0 15px; /* Jaga jarak di layar HP */
+    }
 
-.navbar {
-  background: #0b3d91;
-  color: #fff;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .search-form {
+        display: flex;
+        width: 100%;
+        max-width: 500px; /* Batas lebar maksimal di desktop */
+    }
 
-.navbar h1 {
-  font-size: 1.5rem;
-}
+    .search-input {
+        flex: 1; /* Mengambil sisa ruang yang ada */
+        padding: 12px 20px;
+        border: 1px solid #ced4da;
+        border-right: none;
+        border-radius: 50px 0 0 50px;
+        outline: none;
+        transition: border-color 0.3s ease;
+        font-size: 16px; /* Mencegah auto-zoom di iPhone */
+    }
 
-.navbar nav a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 1.2rem;
-  transition: color 0.3s;
-}
+    .search-input:focus {
+        border-color: #007bff;
+    }
 
-.navbar nav a:hover {
-  color: #ff7b00;
-}
+    .search-button {
+        padding: 12px 25px;
+        border: none;
+        background: var(--second-color);
+        color: white;
+        border-radius: 0 50px 50px 0;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .search-button:hover {
+        background: #0056b3;
+    }
+
+    /* Responsif untuk layar kecil */
+    @media (max-width: 480px) {
+        .search-input {
+            padding: 10px 15px;
+        }
+        .search-button {
+            padding: 10px 20px;
+        }
+        .search-button span {
+            display: none; /* Sembunyikan teks "Cari" di HP, sisakan icon saja */
+        }
+    }
 
 .hero {
-  background: var(--primary-color);
-  color: white;
+  color: var(--primary-color);
   text-align: center;
   padding: 6rem 3rem;
 }
 
-.hero h2 {
-  font-size: 2rem;
+.hero h1 {
+  font-size: 4rem;
   margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-weight: 900;
+  line-height: 1.2;
 }
 
 .news-section {
@@ -53,66 +85,141 @@ body {
   
 }
 
-.news-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-  max-width: 1500px;
-  margin: 0 auto;
+
+.pagination-container {
+    margin-bottom: 50px;
+}
+
+.page-link {
+    padding: 10px 18px;
+    background: #fff;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.page-link:hover {
+    background: #f0f0f0;
+    border-color: #bbb;
+}
+
+.page-link.active {
+    background: var(--second-color);
+    color: #fff;
+    border-color: var(--second-color);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Pastikan berita-container menggunakan grid agar rapi */
+.berita-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
 }
 
 .news-card {
-  background: white;
-  border-radius: 1rem;
-  padding: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: transform 0.3s;
-  height: fit-content
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* JANGAN gunakan height: 100% jika tidak ingin memanjang paksa */
+    /* Gunakan height: auto atau hilangkan height sama sekali */
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+    text-align: left;
 }
 
 .news-card:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-.news-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+.news-img-wrapper {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.news-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.news-card:hover .news-img {
+    transform: scale(1.05);
 }
 
 .news-content {
-  padding: 1rem;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    /* flex-grow: 1 memastikan konten mengambil sisa ruang 
+       sehingga footer terdorong ke paling bawah kartu */
+    flex-grow: 1; 
 }
 
-.news-content h3 {
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
+.news-category {
+    font-size: 10px;
+    letter-spacing: 0.8px;
+    color: var(--primary-blue);
+    background: rgba(0, 123, 255, 0.08);
+    padding: 4px 12px;
+    border-radius: 4px; /* Kotak sedikit tumpul lebih modern */
+    width: fit-content;
+}
+
+.news-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+.news-title a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.news-title a:hover {
+    color: var(--primary-blue);
+}
+
+.news-excerpt {
+    font-size: 14px;
+    color: #636e72;
+    line-height: 1.6;
+    margin-bottom: 0; /* Footer yang akan memberi jarak */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 2 baris lebih clean daripada 3 */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-footer {
+    /* margin-top: auto adalah kunci agar footer tetap di bawah 
+       meskipun teks excerpt-nya pendek */
+    margin-top: auto; 
+    padding-top: 15px;
+    border-top: 1px solid #f1f2f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .news-date {
-  font-size: 0.9rem;
-  color: #777;
-  margin-bottom: 0.5rem;
-}
-
-.news-text {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-}
-
-.read-more {
-  background: var(--second-color);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.read-more:hover {
-  background: #e66a00;
+    font-size: 12px;
+    color: #b2bec3;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 /* Modal Popup */
@@ -150,52 +257,6 @@ body {
 }
 
 
-
-.prestasi-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.prestasi-card {
-  background: white;
-  border-radius: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
-  transition: transform 0.3s;
-}
-
-.prestasi-card:hover {
-  transform: translateY(-5px);
-}
-
-.prestasi-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.prestasi-content {
-  padding: 1rem;
-}
-
-.prestasi-content h3 {
-  color: #0b3d91;
-  margin-bottom: 0.5rem;
-}
-
-.prestasi-date {
-  font-size: 0.9rem;
-  color: #777;
-  margin-bottom: 0.5rem;
-}
-
-.prestasi-text {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-}
 
 .section {
   align-content: center;
