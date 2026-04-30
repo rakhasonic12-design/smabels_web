@@ -10,7 +10,130 @@
        
         /* Container Utama yang Menampung Grid */
         /* --- KUNCI: CSS GRID TIGA KOLOM --- */
-     .agenda-container { 
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 10%;
+  min-height: 80vh;
+  overflow: hidden;
+  gap: 40px;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-subtitle {
+  color: var(--primary-color);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.hero-title span {
+  color: var(--second-color);
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-hero-primary {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+
+.btn-hero-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid var(--primary-color);
+  transition: 0.3s;
+}
+
+.btn-hero-primary:hover, .btn-hero-secondary:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.hero-image {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+.hero-shape {
+  position: absolute;
+  width: 110%;
+  height: 110%;
+  background: var(--primary-color);
+  opacity: 0.1;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  z-index: 1;
+  top: -5%;
+  animation: morph 8s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+  100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 5%;
+  }
+  .hero-title { font-size: 2.5rem; }
+  .hero-buttons { justify-content: center; }
+}
+
+
+        
+ .agenda-container { 
      max-width: 1300px;
     margin: 0 auto; 
     padding: 20px; 

@@ -80,10 +80,6 @@ body {
   line-height: 1.2;
 }
 
-.news-section {
-  padding: 3rem;
-  
-}
 
 
 .pagination-container {
@@ -119,6 +115,11 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 25px;
     margin-bottom: 30px;
+}
+
+.news-section {
+  padding: 1rem;
+  
 }
 
 .news-card {
@@ -279,4 +280,6 @@ body {
   .navbar nav a {
     margin-left: 0.6rem;
   }
+
+ 
 }

@@ -23,6 +23,24 @@
   <div id="body">
   <?php require 'template/header.php'; ?>
 
+<section class="hero-container">
+  <div class="hero-content" data-aos="fade-right">
+    <span class="hero-subtitle">Selamat Datang di Portal Kesiswaan</span>
+    <h1 class="hero-title">Wujudkan Prestasi & Kreativitas di <span>SMA 11 Bekasi</span></h1>
+    <p class="hero-description">
+      Temukan berbagai kegiatan ekstrakurikuler, agenda sekolah, dan sumber belajar terbaik untuk mendukung perjalanan akademikmu.
+    </p>
+    <div class="hero-buttons">
+      <a href="#ekskul-scroll-element" class="btn-hero-primary">Jelajahi Ekskul</a>
+      <a href="#agenda-section" class="btn-hero-secondary">Lihat Agenda</a>
+    </div>
+  </div>
+  <div class="hero-image" data-aos="zoom-in" data-aos-delay="200">
+    <img src="assets/Masjid.JPG" alt="SMA 11 Bekasi Hero Image">
+    <div class="hero-shape"></div>
+  </div>
+</section>
+
 <section class="ekskul-section">
   <div class="section-header">
     <h1>Ekstrakurikuler</h1>

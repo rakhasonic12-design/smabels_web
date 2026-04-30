@@ -53,6 +53,8 @@
   background-color: var(--white-color);
   transition: width 0.3s ease;
 }
+
+
 </style>
 </head>
 <body>
@@ -149,28 +151,28 @@ $query = mysqli_query($conn, "SELECT * FROM data_sekolah");
 
 
 
-<div class="section" data-aos="fade-up">
+<section class="main-section" data-aos="fade-up">
   <div class="section-container">
-    <div class="welcome-img">
-      <img src="assets\Lapangan Dalam.jpg">
-    </div>
-  </div>
-
-  <div class="section-container">
-   <div class="section-par">
-    <div class="section-header">
-     <h1>Selamat Datang!</h1>
-    </div>
-    <P>Selamat datang di situs web SMAN 11 Bekasi! Jelajahi seputar informasi tentang kami
-     melalui halaman-halaman berikut.
-    </P>
-     <div class="buttons">
-        <a href="#" class="btn-primary">Jelajah</a>
+    
+    <div class="image-box" data-aos="zoom-in">
+      <div class="image-wrapper">
+        <img src="assets/Masjid.JPG" alt="SMA 11 Bekasi" class="hero-img">
+        <div class="blob-glow"></div>
       </div>
-   </div>
-  </div>
+    </div>
 
-</div>
+    <div class="text-box">
+      <h1>Selamat Datang!</h1>
+      <p>
+        Jelajahi informasi terkini mengenai <strong>SMAN 11 Bekasi</strong>. Kami berkomitmen memberikan layanan pendidikan terbaik melalui inovasi dan integritas.
+      </p>
+        <div class="section-actions">
+        <a href="https://www.instagram.com/sman11bekasi/" class="btn-primary">Kunjungi Kami</a>
+      </div>
+    </div>
+
+  </div>
+</section>
   
 
 
@@ -242,55 +244,26 @@ $query = mysqli_query($conn, "SELECT * FROM data_sekolah");
     </section>
 </div>-->
 
-<div class="section reversed" data-aos="fade-up">
+<section class="main-section" data-aos="fade-up">
   <div class="section-container">
-   <div class="section-par">
-    <div class="section-header">
-     <h1>Fasilitas</h1>
+    
+    <div class="image-box" data-aos="zoom-in">
+      <div class="image-wrapper">
+        <img src="assets/Masjid.JPG" alt="SMA 11 Bekasi" class="hero-img">
+        <div class="blob-glow"></div>
+      </div>
     </div>
-    <P>Sekolah kami menyediakan beragam fasilitas untuk mendukung kegiatan mengajar serta membantu siswa agar
-      merasa lebih nyaman berada di sekolah. Klik tombol di bawah untuk mencari tahu!
-    </P>
-     <div class="buttons">
-        <a href="#" class="btn-primary">Jelajah</a>
-      </div>
-   </div>
-  </div>
 
-
-
-<div class="section-container">
-  <div class="fasilitas-section">
-    <div class="fasilitas-wrapper">
-
-      <div class="foto-fasilitas side">
-        <img src="assets/Masjid.jpg" alt="Masjid">
-        <div class="fasilitas-overlay">
-          <p>Masjid Sekolah</p>
-        </div>
-      </div>
-
-      <div class="foto-fasilitas tengah">
-        <img src="assets/Lapangan Dalam.jpg" alt="Lapangan">
-        <div class="fasilitas-overlay">
-          <p>Lapangan Utama</p>
-        </div>
-      </div>
-
-      <div class="foto-fasilitas side">
-        <img src="assets/Ruang podcast.jpg" alt="Ruang Podcast">
-        <div class="fasilitas-overlay">
-          <p>Studio Podcast</p>
-        </div>
-      </div>
-
+    <div class="text-box">
+      <h1>Selamat Datang!</h1>
+      <p>
+        Jelajahi informasi terkini mengenai <strong>SMAN 11 Bekasi</strong>. Kami berkomitmen memberikan layanan pendidikan terbaik melalui inovasi dan integritas.
+      </p>
+      
     </div>
+
   </div>
-</div>
-
-
-
-</div>
+</section>
   
 
 <div class="prestasi" id="prestasi" data-aos="fade-up">

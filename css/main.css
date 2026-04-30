@@ -62,7 +62,7 @@
   color: rgba(255, 255, 255, 0.9);
   max-width: 650px;
   margin: 0 auto 40px;
- font-size: clamp(0.8rem, 2vw, 1rem);
+ font-size: clamp(0.9rem, 2vw, 1rem);
   line-height: 1.6;
 }
 
@@ -136,76 +136,116 @@
 
 /* --- RESPONSIVE --- */
 
-.section {
-  padding: 50px 50px;
+.main-section {
+  padding: 80px 0; /* Padding vertikal ditingkatkan */
   display: flex;
-  flex-direction: row;
-  border-radius: 30px; /* Lebih bulat agar lebih modern */
-  margin: 100px auto;
-  gap: 70px;
-  position: relative; /* Wajib ada untuk overlay */
-  overflow: hidden; /* Agar overlay tidak keluar batas */
-  
-  /* Background Dasar */
-}
-
-
-
-.section-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  z-index: 1; /* Agar konten di atas overlay */
-}
-
-/* Memperbaiki typo dari wsection-par ke section-par */
-.section-par {
-  color: #333; /* Sesuaikan dengan variabel Anda jika perlu */
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 500px;
-  margin: auto;
   align-items: center;
+  min-height: 80vh;
+  margin: 100px 0; /* Jarak vertikal antar section ditingkatkan */
+  /* margin: 100px 0; */ /* Gunakan padding saja agar lebih konsisten dengan background */
 }
 
+.main-section .section-container {
+  max-width: 1600px; /* Batasi lebar maksimal agar teks & gambar tidak terlalu jauh di layar besar */
+  margin: 0 auto;
+  padding: 0 5%; /* Gunakan persentase agar responsif di berbagai layar */
+  display: flex;
+  flex-direction: row; 
+  align-items: center; /* Memastikan teks & gambar sejajar di tengah secara vertikal */
+  gap: 200px; /* RUANG UTAMA: Ditingkatkan dari 80px ke 100px */
+}
 
-.section-header h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+.text-box h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   color: var(--primary-color);
+  font-weight: 800;
+  line-height: 1.1;
+  
 }
 
-.welcome-img {
-  height: 350px;
-  width: 100%;
-  max-width: 600px;
-  background-color: var(--primary-color);
+.text-box p {
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: var(--slate);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  max-width: 520px; /* Sedikit lebih lebar agar aliran teks lebih enak dibaca */
+  
+}
+
+/* --- BAGIAN GAMBAR --- */
+.image-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-wrapper {
   position: relative;
-  transition: all 0.5s ease;
-  margin: 0px auto;
-   border-radius: 100px 100px 100px 0;
-}
-
-.welcome-img img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: -20px; 
-  left: 20px;
-  box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.266);
-  transition: all 0.5s ease;
-  border-radius: 0 100px 0 100px ;
+  max-width: 380px; /* Ukuran gambar sedikit ditingkatkan untuk keseimbangan */
 }
 
-/* Hover Effect yang lebih halus */
-.welcome-img:hover img {
-  top: -30px;
-  left: 30px;
-  filter: grayscale(0%); /* Opsional: saya hapus grayscale agar tetap segar */
+.hero-img {
+  width: 125%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  animation: morphing 3.5s ease-in-out infinite;
 }
+
+.blob-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%; height: 110%;
+  background: var(--primary-color);
+  filter: blur(50px);
+  opacity: 0.05;
+}
+
+.section-actions {
+  display: flex;
+  gap: 20px;
+  color: var(--white-color);
+}
+
+
+/* --- RESPONSIVE (Mobile) --- */
+@media (max-width: 992px) {
+  .main-section .section-container {
+    flex-direction: column; /* Teks di bawah, gambar di atas */
+    gap: 60px; /* Jarak vertikal saat di mobile */
+    text-align: center;
+  }
+  
+  .text-box p {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem; /* Memberi ruang horizontal agar tidak terlalu menempel ke tepi di layar besar */
+  }
+
+  .hero-img {
+    width: 85%;
+  }
+
+  .section-actions {
+  display: flex;
+  gap: 20px;
+  color: var(--white-color);
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+
+  }
+}
+
+@keyframes morphing {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 40% 60% 70% 30% / 40% 50% 50% 60%; }
+}
+
 
 /* Responsive agar tidak kaku di HP */
 .whyMust {
@@ -287,115 +327,6 @@
   }
 }
 
-.fasilitas {
-  padding: 60px 20px;
-  max-width: 1500px; 
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* Menggunakan Flexbox agar sisa item bisa ditengah */
-.fasilitas-grid {
-  display: flex;
-  flex-wrap: wrap; /* Baris baru otomatis jika penuh */
-  justify-content: center; /* Menengahkan item jika baris terakhir sisa */
-  gap: 15px; /* Jarak antar item */
-  margin-top: 30px;
-}
-
-/* Item kartu dengan ukuran proporsional */
-.fasilitas-item {
-  position: relative;
-  /* Kita gunakan basis 25% untuk desktop (4 kolom) */
-  flex: 0 1 calc(25% - 25px); 
-  /* Hapus min-width lama agar tidak memaksa jadi 1 kolom di layar kecil */
-  border-radius: 20px;
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  cursor: pointer;
-  background-color: #f8f9fa;
-}
-
-.img-wrapper {
-  width: 100%;
-  height: 100%;
-}
-
-.fasilitas-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(29, 36, 137, 0.915) 0%, rgba(29, 36, 137, 0.422) 100%);
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding: 20px;
-  opacity: 0;
-  transition: all 0.4s ease;
-}
-
-.overlay p {
-  color: var(--white-color);
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0;
-  transform: translateY(15px);
-  transition: all 0.4s ease;
-}
-
-
-/* Hover Effects */
-.fasilitas-item:hover .overlay { opacity: 1; }
-.fasilitas-item:hover .overlay p { transform: translateY(0); }
-.fasilitas-item:hover img { transform: scale(1.1); }
-
-/* Responsif: Menyesuaikan jumlah kolom */
-@media (max-width: 1200px) {
-  .fasilitas-item { flex: 0 1 calc(33.333% - 25px); } /* 3 Kolom */
-}
-
-@media (max-width: 900px) {
-  .fasilitas-item { flex: 0 1 calc(50% - 25px); } /* 2 Kolom di Tablet */
-}
-
-@media (max-width: 600px) {
-  .fasilitas-grid {
-    gap: 5px; /* Jarak lebih kecil agar muat di layar HP */
-  }
-  .fasilitas-item { 
-    /* Memaksa tetap 2 kolom: (100% / 2) - jarak gap */
-    flex: 0 1 calc(50% - 10px); 
-    border-radius: 12px; /* Radius lebih kecil agar lebih proporsional di layar mungil */
-  }
-  .overlay p {
-    font-size: 0.85rem; /* Ukuran teks lebih kecil agar tidak menumpuk */
-    padding: 10px;
-  }
-}
-
-
-.logoPanit{
-  align-content: center;
-  padding: 50px;
-  text-align: center;
-  
-}
-
-.logoPanit img{
-  height: 50px;
-}
-
-
 .card {
   height: 150px;
   display: flex;
@@ -444,82 +375,6 @@
 
 .curve {
   border-radius: 0.35rem;
-}
-
-
-.fasilitas-section {
-  padding: 50px 0;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.fasilitas-wrapper {
-  display: grid;
-  /* Menggunakan 1fr agar lebar ketiga kolom sama persis */
-  grid-template-columns: 1fr 1.2fr 1fr; 
-  align-items: center;
-  gap: 0; /* Ubah ke 15px jika ingin ada jarak antar foto */
-}
-
-.foto-fasilitas {
-  position: relative; /* Wajib agar overlay menempel di sini */
-  width: 100%;
-  height: 320px; /* Tinggi untuk foto samping */
-  overflow: hidden; /* Agar gambar yang di-zoom tidak keluar bingkai */
-  background-color: var(--primary-color);
-  transition: all 0.4s ease;
-}
-
-/* Foto tengah dibuat lebih tinggi */
-.tengah {
-  height: 400px;
-  box-shadow: 0px 15px 35px rgba(0,0,0,0.3);
-  z-index: 10;
-  min-width: 250px; /* Opsional: memberi sedikit lengkungan agar menonjol */
-}
-
-/* Gambar */
-.foto-fasilitas img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Efek Hover Gambar */
-.foto-fasilitas:hover img {
-  transform: scale(1.15);
-}
-
-/* Overlay */
-.fasilitas-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(29, 36, 137, 0.9) 0%, rgba(29, 36, 137, 0.2) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.fasilitas-overlay p {
-  color: white;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transform: translateY(20px);
-  transition: transform 0.4s ease;
-}
-
-.foto-fasilitas:hover .fasilitas-overlay {
-  opacity: 1;
-}
-
-.foto-fasilitas:hover .fasilitas-overlay p {
-  transform: translateY(0);
 }
 
 
@@ -628,9 +483,9 @@
     align-items: center; 
     text-align: left;
     background: #fff;
-    padding: 15px;
+    min-width: 300px;
     border-radius: 10px;
-     border: 1px solid #ddd;
+    border: 1px solid #ddd;
     box-sizing: border-box; /* Penting agar padding tidak merusak lebar 100% */
     transition: all 0.3s ease;
     cursor: pointer;
@@ -644,9 +499,9 @@
 
   .fotoAgenda {
     background: #fdf2e9;
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -654,6 +509,14 @@
     margin-right: 20px;
     color: #e65100;
     font-size: 2rem;
+  }
+
+  .judulAgenda {
+    flex: 1; /* Memastikan teks mengambil sisa ruang */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Memposisikan teks di tengah secara vertikal */
+    text-align: left;
   }
 
   .judulAgenda p { 
@@ -682,7 +545,7 @@
     /* align-items: start mencegah kartu "ditarik" ke bawah 
        mengikuti kartu tertinggi di barisnya */
     align-items: start; 
-    padding: 20px;
+    padding: 1rem;
 }
 
 .news-card {
@@ -837,6 +700,10 @@
     grid-template-columns: auto auto;
   }
 
+  .prestasi-container {
+    grid-template-columns: auto;
+  }
+
 }
 
 @media (max-width: 727px) {
@@ -888,7 +755,7 @@
 
   .berita-container {
     grid-template-columns: 1fr;
-    padding: 20px;
+    padding: 1rem;
   }
 
   .news-card {
@@ -949,7 +816,7 @@
    .berita-container {
         grid-template-columns: 1fr; /* Satu kolom saja */
         gap: 20px;
-        padding: 35px;
+        padding: 1rem;
     }
 
     .news-card {
@@ -979,90 +846,5 @@
         -webkit-line-clamp: 2; /* Batasi 2 baris agar tidak kepanjangan */
     }
 
-
-   .gallery-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .gallery-container {
-    grid-template-columns: (auto-fit, minmax(200px, 1fr));
-  }
-
-  .gallery-item img {
-    height: 180px;
-  }
-
-
- .profil {
-  display: block;
-  font-size: smaller;
-  gap: 100px;
-  align-content: center;
-  text-align: center;
-  
- }
-
-
- .image-container {
-  padding: 20px;
- }
-
- .profil .parProfil{
-  background-color: none;
-  border-radius: none;
-  border-radius: 0;
-}
-
- .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-
-
-  .Fasilitas {
-    padding: 25px;
-  }
-
-  .galleryFasilitas {
-  display: grid;
-  grid-template-columns: auto 50%;
-  padding: 25px;
-  gap: 25px;
-
-  }
-
-  .galleryFasilitas .fotoFasilitas {
-    height: auto;
-    width: auto;
-  }
-
-  .galleryFasilitas .fotoFasilitas img {
-    height: 200px;
-  }
-
-
-  .fotoFasilitas .teksFasilitas {
-    padding: 0px;
-    
-  }
-  
-
-  
-
-.prestasi-container {
-  display: grid;
-  grid-template-columns: auto;
-}
-  
-
-  .footer {
-  padding: 5px;
-}
-
-.footer .contain {
-  display: grid;
-  grid-template-columns: auto;
-}
 
 }
