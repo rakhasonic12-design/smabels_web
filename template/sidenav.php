@@ -7,7 +7,7 @@
       <a href="index.php">Home</a>
       <a href="profilsekolah.php">Profil</a>
       <a href="beritautama.php">Berita</a>
-      <a href="kesiswaan.php">Kesiswaan</a>
+      <a href="kesiswaan.php">Kesiswaann</a>
      </div>
     
     <p>Aplikasi</p>
